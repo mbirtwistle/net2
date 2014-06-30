@@ -27,6 +27,7 @@
 // together when too many files stack up.
 //
 // Learn more: http://code.google.com/p/leveldb/
+/*
 class CTxDB
 {
 public:
@@ -205,6 +206,6 @@ public:
 private:
     bool LoadBlockIndexGuts();
 };
-
+*/
 
 #endif // BITCOIN_DB_H

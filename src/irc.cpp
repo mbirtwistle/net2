@@ -79,7 +79,7 @@ static bool Send(SOCKET hSocket, const char* pszSend)
 
 bool RecvLineIRC(SOCKET hSocket, string& strLine)
 {
-    loop
+    while(true)
     {
         bool fRet = RecvLine(hSocket, strLine);
         if (fRet)
@@ -102,7 +102,7 @@ bool RecvLineIRC(SOCKET hSocket, string& strLine)
 
 int RecvUntil(SOCKET hSocket, const char* psz1, const char* psz2=NULL, const char* psz3=NULL, const char* psz4=NULL)
 {
-    loop
+    while(true)
     {
         string strLine;
         strLine.reserve(10000);
@@ -129,7 +129,7 @@ bool Wait(int nSeconds)
     {
         if (fShutdown)
             return false;
-        Sleep(1000);
+        MilliSleep(1000);
     }
     return true;
 }
@@ -137,7 +137,7 @@ bool Wait(int nSeconds)
 bool RecvCodeLine(SOCKET hSocket, const char* psz1, string& strRet)
 {
     strRet.clear();
-    loop
+    while(true)
     {
         string strLine;
         if (!RecvLineIRC(hSocket, strLine))
@@ -278,7 +278,7 @@ void ThreadIRCSeed2(void* parg)
             else
                 return;
         }
-        Sleep(500);
+        MilliSleep(500);
 
         // Get our external IP from the IRC server and re-nick before joining the channel
         CNetAddr addrFromIRC;

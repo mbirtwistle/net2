@@ -23,7 +23,7 @@
       <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabMain">
       <attribute name="title">
@@ -44,7 +44,7 @@
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_Main">
+        <layout class="QHBoxLayout" name="horizontalLayoutFee">
          <item>
           <widget class="QLabel" name="transactionFeeLabel">
            <property name="text">
@@ -62,7 +62,53 @@
           <widget class="BitcoinAmountField" name="transactionFee"/>
          </item>
          <item>
-          <spacer name="horizontalSpacer_Main">
+          <spacer name="horizontalSpacerFee">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="reserveBalanceInfoLabel">
+         <property name="text">
+          <string>Reserved amount does not participate in staking and is therefore spendable at any time.</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayoutReserveBalance">
+         <item>
+          <widget class="QLabel" name="reserveBalanceLabel">
+           <property name="text">
+            <string>Reserve</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="buddy">
+            <cstring>reserveBalance</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="BitcoinAmountField" name="reserveBalance"/>
+         </item>
+         <item>
+          <spacer name="horizontalSpacerReserveBalance">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -79,10 +125,10 @@
        <item>
         <widget class="QCheckBox" name="bitcoinAtStartup">
          <property name="toolTip">
-          <string>Automatically start NetCoin after logging in to the system.</string>
+          <string>Automatically start Pandacoin after logging in to the system.</string>
          </property>
          <property name="text">
-          <string>&amp;Start NetCoin on system login</string>
+          <string>&amp;Start Pandacoin on system login</string>
          </property>
         </widget>
        </item>
@@ -119,7 +165,7 @@
        <item>
         <widget class="QCheckBox" name="mapPortUpnp">
          <property name="toolTip">
-          <string>Automatically open the NetCoin client port on the router. This only works when your router supports UPnP and it is enabled.</string>
+          <string>Automatically open the Pandacoin client port on the router. This only works when your router supports UPnP and it is enabled.</string>
          </property>
          <property name="text">
           <string>Map port using &amp;UPnP</string>
@@ -129,7 +175,7 @@
        <item>
         <widget class="QCheckBox" name="connectSocks">
          <property name="toolTip">
-          <string>Connect to the NetCoin network through a SOCKS proxy (e.g. when connecting through Tor).</string>
+          <string>Connect to the Pandacoin network through a SOCKS proxy (e.g. when connecting through Tor).</string>
          </property>
          <property name="text">
           <string>&amp;Connect through SOCKS proxy:</string>
@@ -303,7 +349,7 @@
          <item>
           <widget class="QValueComboBox" name="lang">
            <property name="toolTip">
-            <string>The user interface language can be set here. This setting will take effect after restarting NetCoin.</string>
+            <string>The user interface language can be set here. This setting will take effect after restarting Pandacoin.</string>
            </property>
           </widget>
          </item>
@@ -336,10 +382,20 @@
        <item>
         <widget class="QCheckBox" name="displayAddresses">
          <property name="toolTip">
-          <string>Whether to show NetCoin addresses in the transaction list or not.</string>
+          <string>Whether to show Pandacoin addresses in the transaction list or not.</string>
          </property>
          <property name="text">
           <string>&amp;Display addresses in transaction list</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="coinControlFeatures">
+         <property name="toolTip">
+          <string>Whether to show coin control features or not.</string>
+         </property>
+         <property name="text">
+          <string>Display coin &amp;control features (experts only!)</string>
          </property>
         </widget>
        </item>
@@ -430,12 +486,6 @@
         <string>&amp;Apply</string>
        </property>
        <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-       <property name="default">
-        <bool>false</bool>
-       </property>
-       <property name="flat">
         <bool>false</bool>
        </property>
       </widget>

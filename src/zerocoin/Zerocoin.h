@@ -48,6 +48,7 @@ public:
 
 #include "../serialize.h"
 #include "../bignum.h"
+typedef CBigNum Bignum; // zerocoin uses this type name
 #include "../util.h"
 #include "Params.h"
 #include "Coin.h"

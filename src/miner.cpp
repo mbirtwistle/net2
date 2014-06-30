@@ -7,7 +7,7 @@
 #include "txdb.h"
 #include "miner.h"
 #include "kernel.h"
-
+#include "util.h"
 using namespace std;
 
 //////////////////////////////////////////////////////////////////////////////
@@ -127,7 +127,7 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
 
     if (!fProofOfStake)
     {
-        // Pandacoin: all PoW blocks are version 2
+        // Netcoin: all PoW blocks are version 2
         pblock->nVersion = 2;
 
         CReserveKey reservekey(pwallet);
@@ -172,7 +172,7 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
     if (mapArgs.count("-mintxfee"))
         ParseMoney(mapArgs["-mintxfee"], nMinTxFee);
 
-    pblock->nBits = GetNextWorkRequired(pindexPrev, fProofOfStake);
+    pblock->nBits = GetNextWorkRequired(pindexPrev, pblock.get(), fProofOfStake);
 
     // Collect memory pool transactions into the block
     int64_t nFees = 0;
