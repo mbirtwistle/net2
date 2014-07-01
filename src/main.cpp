@@ -2697,26 +2697,7 @@ bool LoadBlockIndex(bool fAllowNew)
 
 
     }
-            const char* pszTimestamp = "Aug 31, 2013: US STOCKS-Wall Street falls, ends worst month since May 2012.";
-    CTransaction txNew;
-    txNew.vin.resize(1);
-    txNew.vout.resize(1);
-    txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-    txNew.vout[0].nValue = 0 * COIN;
-    txNew.vout[0].scriptPubKey = CScript() << ParseHex("0457575678901234567890000222222333444555666777888999000000aaaaabbbbbcccccdddddeeeeeff00ff00ff00ff001234567890abcdef0022446688abc89") << OP_CHECKSIG;
-    txNew.nVersion = 2;
 
-    CBlock block;
-    block.vtx.push_back(txNew);
-    block.hashPrevBlock = 0;
-    block.hashMerkleRoot = block.BuildMerkleTree();
-    block.nVersion = 1;
-    block.nTime    = 1377903314;
-    block.nBits    = 0x1e0ffff0;
-    block.nNonce   = 12344321;
-    printf("block.GetHash() = %s\n", block.GetHash().ToString().c_str());
-    printf("block.hashMerkleRoot = %s\n", block.hashMerkleRoot.ToString().c_str());
-    printf("hashGenesisBlock = %s\n", hashGenesisBlock.ToString().c_str());
     //
     // Load block index
     //
@@ -2753,8 +2734,9 @@ bool LoadBlockIndex(bool fAllowNew)
 
 		if (fTestNet)
         {
-            block.nTime    = 1300000000;
-            block.nNonce   = 0;
+                block.nTime    = 1402442819;
+                block.nBits    = bnProofOfWorkLimit.GetCompact();
+                block.nNonce   = 1261171;
         }
 
         //// debug print

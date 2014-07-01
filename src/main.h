@@ -72,9 +72,8 @@ static const int BLOCK_HEIGHT_KGW_START_TESTNET = 5;
 static const int BLOCK_HEIGHT_POS_START_TESTNET = 10;
 static const int BLOCK_HEIGHT_FINALPOW_TESTNET =  20;
 
-
-static const uint256 hashGenesisBlockTestNet("0x68fad98bd07315eef904fa3bf4344a38cb4f05549f659272bad7b4e88961d4c5");
-
+//static const uint256 hashGenesisBlockTestNet ("0x000002810d7ce3b38b98b118abcdbeecb46b11da0c7a946745d63e1d66547ead");
+static const uint256 hashGenesisBlockTestNet ("0x63141eded213b050e2aca8e6beb2070fa37c3520f1c492fd5a82a03c337e90f3");
 
 inline int64_t PastDrift(int64_t nTime)   { return nTime - 10 * 60; } // up to 10 minutes from the past
 inline int64_t FutureDrift(int64_t nTime) { return nTime + 10 * 60; } // up to 10 minutes from the future
