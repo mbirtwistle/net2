@@ -62,17 +62,15 @@ static const int fHaveUPnP = false;
 
 static const uint256 hashGenesisBlock("0x38624e3834cfdc4410a5acbc32f750171aadad9620e6ba6d5c73201c16f7c8d1");
 
-static const int BLOCK_HEIGHT_KGW_START = 218500;
-static const int BLOCK_HEIGHT_POS_START = 300000;
-static const int BLOCK_HEIGHT_FINALPOW =  333333;
+static const int BLOCK_HEIGHT_KGW_START = 218500; // HISTORICAL HARD FORK. DO NOT CHANGE
+static const int BLOCK_HEIGHT_POS_AND_DIGISHIELD_START = 388800; // this is the same block where the mining reward also drops to 128
+static const int BLOCK_HEIGHT_FINALPOW =  450000;
 
 
+static const int BLOCK_HEIGHT_KGW_START_TESTNET = 60;
+static const int BLOCK_HEIGHT_POS_AND_DIGISHIELD_START_TESTNET =120;
+static const int BLOCK_HEIGHT_FINALPOW_TESTNET =  240;
 
-static const int BLOCK_HEIGHT_KGW_START_TESTNET = 5;
-static const int BLOCK_HEIGHT_POS_START_TESTNET = 10;
-static const int BLOCK_HEIGHT_FINALPOW_TESTNET =  20;
-
-//static const uint256 hashGenesisBlockTestNet ("0x000002810d7ce3b38b98b118abcdbeecb46b11da0c7a946745d63e1d66547ead");
 static const uint256 hashGenesisBlockTestNet ("0x63141eded213b050e2aca8e6beb2070fa37c3520f1c492fd5a82a03c337e90f3");
 
 inline int64_t PastDrift(int64_t nTime)   { return nTime - 10 * 60; } // up to 10 minutes from the past

@@ -46,9 +46,11 @@ static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // NetCoin: starting diffi
 CBigNum bnProofOfStakeLimit(~uint256(0) >> 20);
 CBigNum bnProofOfWorkLimitTestNet(~uint256(0) >> 16);
 
+// initial netcoin difficulty params - preKGW then digishield
 static const int64_t nTargetTimespan = 60 * 60;						// NetCoin: every 60 minutes
 unsigned int nTargetSpacing = 1 * 60;								// NetCoin: 60 sec
 static const int64_t nInterval = nTargetTimespan / nTargetSpacing;	// 60 blocks
+
 unsigned int nStakeMinAge = 8 * 60 * 60; // 8 hours
 unsigned int nStakeMaxAge = 2592000; // 30 days
 unsigned int nModifierInterval = 10 * 60; // time to elapse before new modifier is computed
@@ -1179,11 +1181,11 @@ unsigned int static GetNextWorkRequired_V1(const CBlockIndex* pindexLast, const 
     int64_t nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
     // printf("  nActualTimespan = %"PRI64d"  before bounds\n", nActualTimespan);
 
-	if (nActualTimespan < nTargetTimespan/4)
-		nActualTimespan = nTargetTimespan/4;
+    if (nActualTimespan < nTargetTimespan/4)
+        nActualTimespan = nTargetTimespan/4;
 
-	if (nActualTimespan > nTargetTimespan*4)
-		nActualTimespan = nTargetTimespan*4;
+    if (nActualTimespan > nTargetTimespan*4)
+        nActualTimespan = nTargetTimespan*4;
 
     // Retarget
     CBigNum bnNew;
@@ -1195,12 +1197,12 @@ unsigned int static GetNextWorkRequired_V1(const CBlockIndex* pindexLast, const 
         bnNew = bnProofOfWorkLimit;
 
     /// debug print
-	/*
+    /*
     printf("GetNextWorkRequired RETARGET\n");
     printf("nTargetTimespan = %"PRI64d"    nActualTimespan = %"PRI64d"\n", nTargetTimespan, nActualTimespan);
     printf("Before: %08x  %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
     printf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
-	*/
+    */
 
     return bnNew.GetCompact();
 }
@@ -1263,7 +1265,7 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, uint64_t Ta
     return bnNew.GetCompact();
 }
 
-unsigned int static GetNextWorkRequired_V2(const CBlockIndex* pindexLast)
+unsigned int static GetNextWorkRequired_KGW(const CBlockIndex* pindexLast)
 {
     static const int64_t	BlocksTargetSpacing			= 1 * 60; // 1 minute
     unsigned int		TimeDaySeconds				= 60 * 60 * 24;
@@ -1276,49 +1278,92 @@ unsigned int static GetNextWorkRequired_V2(const CBlockIndex* pindexLast)
     return KimotoGravityWell(pindexLast, BlocksTargetSpacing, PastBlocksMin, PastBlocksMax);
 }
 
+
+
+// netcoin: Digishield inspired difficulty algorithm
+// netcoin-WHO: Digibyte code was simplified and reduced by assuming nInterval==1
+//  added fProofOfStake to selectively locate last two blocks of the requested type for the time comparison.
+// includes extra flag to backtrack either Proof of Stake or Proof of Work blocks in the chain
+unsigned int GetNextTrust_DigiShield(const CBlockIndex* pindexLast, bool fProofOfStake)
+{
+    //unsigned int nProofOfWorkLimit = Params().ProofOfWorkLimit().GetCompact();
+
+    // find the previous 2 blocks of the requested type (either POS or POW)
+    const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, fProofOfStake);
+
+
+    int64_t retargetTimespan = 60;
+
+    // Genesis block,  or first POS block not yet mined
+    if (pindexPrev == NULL) return bnProofOfWorkLimit.getuint();
+
+    // is there another block of the correct type prior to pindexPrev?
+    const CBlockIndex* pindexPrevPrev = GetLastBlockIndex(pindexPrev->pprev, fProofOfStake);
+    if (pindexPrevPrev == NULL)
+        pindexPrevPrev = pindexPrev ;
+
+    // Limit adjustment step
+    int64_t nActualTimespan = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
+    printf("nActualTimespan = %d before bounds\n", nActualTimespan);
+
+
+    // thanks to RealSolid & WDC for this code
+
+    // amplitude filter - thanks to daft27 for this code
+       nActualTimespan = retargetTimespan + (nActualTimespan - retargetTimespan)/8;
+
+    if (nActualTimespan < (retargetTimespan - (retargetTimespan/4)) ) nActualTimespan = (retargetTimespan - (retargetTimespan/4));
+    if (nActualTimespan > (retargetTimespan + (retargetTimespan/2)) ) nActualTimespan = (retargetTimespan + (retargetTimespan/2));
+
+    CBigNum bnNew;
+    bnNew.SetCompact(pindexLast->nBits);
+    bnNew *= nActualTimespan;
+    bnNew /= retargetTimespan;
+
+    if (bnNew > bnProofOfWorkLimit)
+        bnNew = bnProofOfWorkLimit;
+
+    /// debug print
+    printf("GetNextWorkRequired RETARGET\n");
+    printf("nTargetTimespan = %d nActualTimespan = %d\n", nTargetTimespan, nActualTimespan);
+    printf("Before: %08x %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
+    printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+
+    return bnNew.GetCompact();
+}
+
+// POW blocks tried various algorithms starting at different block height
+unsigned int GetNextProofOfWork(const CBlockIndex* pindexLast, const CBlock* pblock)
+{
+    const CBlockIndex* pindexLastPOW = GetLastBlockIndex(pindexLast, false);
+
+    // most recent (highest block height)
+    if (pindexLastPOW->nHeight+1 >= (fTestNet ? BLOCK_HEIGHT_POS_AND_DIGISHIELD_START_TESTNET : BLOCK_HEIGHT_POS_AND_DIGISHIELD_START))
+        return GetNextTrust_DigiShield(pindexLastPOW, false);
+
+    if (pindexLastPOW->nHeight+1 >= (fTestNet ? BLOCK_HEIGHT_KGW_START_TESTNET : BLOCK_HEIGHT_KGW_START))
+        return GetNextWorkRequired_KGW(pindexLastPOW);
+
+    // first netcoin difficulty algorithm
+    return GetNextWorkRequired_V1(pindexLastPOW,pblock);
+}
+
+// GET NEXT WORK REQUIRED - MAIN FUNCTION ROUTER FOR DIFFERENT AGE AND TYPE OF BLOCKS
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlock* pblock, bool fProofOfStake)
 {
-    CBigNum bnTargetLimit = bnProofOfWorkLimit;
 
     if(fProofOfStake)
-    {
-        const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, fProofOfStake);
-        if (pindexPrev->pprev == NULL)
-            return bnTargetLimit.GetCompact(); // first block
-        const CBlockIndex* pindexPrevPrev = GetLastBlockIndex(pindexPrev->pprev, fProofOfStake);
-        if (pindexPrevPrev->pprev == NULL)
-            return bnTargetLimit.GetCompact(); // second block
+        return GetNextTrust_DigiShield(pindexLast, true); // first proof of stake blocks use digishield
+    else
+        return GetNextProofOfWork(pindexLast, pblock);
 
-        int64_t nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
-        if (nActualSpacing < 0)
-            nActualSpacing = nTargetSpacing;
-
-        // ppcoin: target change every block
-        // ppcoin: retarget with exponential moving toward target spacing
-        CBigNum bnNew;
-        bnNew.SetCompact(pindexPrev->nBits);
-        int64_t nInterval = nTargetTimespan / nTargetSpacing;
-        bnNew *= ((nInterval - 1) * nTargetSpacing + nActualSpacing + nActualSpacing);
-        bnNew /= ((nInterval + 1) * nTargetSpacing);
-
-        if (bnNew <= 0 || bnNew > bnTargetLimit)
-            bnNew = bnTargetLimit;
-
-        return bnNew.GetCompact();
-    }
-
-    int DiffMode = 1;
-    if (fTestNet) {
-        if (pindexLast->nHeight+1 >= BLOCK_HEIGHT_KGW_START_TESTNET) { DiffMode = 2; }
-    }
-    else {
-        if (pindexLast->nHeight+1 >= BLOCK_HEIGHT_KGW_START) { DiffMode = 2; }
-    }
-
-    if		(DiffMode == 1) { return GetNextWorkRequired_V1(pindexLast,pblock); }
-    else if	(DiffMode == 2) { return GetNextWorkRequired_V2(pindexLast); }
-    return GetNextWorkRequired_V2(pindexLast);
 }
+
+
+
+
+
+
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits)
 {
