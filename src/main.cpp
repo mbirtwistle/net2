@@ -1325,7 +1325,7 @@ unsigned int GetNextTrust_DigiShield(const CBlockIndex* pindexLast, bool fProofO
 
     /// debug print
     printf("GetNextWorkRequired RETARGET\n");
-    printf("nTargetTimespan = %d nActualTimespan = %d\n", nTargetTimespan, nActualTimespan);
+    printf("nTargetTimespan = %d nActualTimespan = %d\n", retargetTimespan, nActualTimespan);
     printf("Before: %08x %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
     printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
 
@@ -2421,16 +2421,6 @@ bool CBlock::AcceptBlock()
 
     if (CheckpointsMode == Checkpoints::ADVISORY && !cpSatisfies)
         strMiscWarning = _("WARNING: syncronized checkpoint violation detected, but skipped!");
-
-    // Enforce rule that the coinbase starts with serialized block height
-    // Unfortunately there are bad version 2 blocks in Pandacoin blockchain (e.g. block 6)
-    if (nVersion >= 2 && nHeight > 1000)
-    {
-        CScript expect = CScript() << nHeight;
-        if (vtx[0].vin[0].scriptSig.size() < expect.size() ||
-            !std::equal(expect.begin(), expect.end(), vtx[0].vin[0].scriptSig.begin()))
-            return DoS(100, error("AcceptBlock() : block height mismatch in coinbase"));
-    }
 
     // Write block to history file
     if (!CheckDiskSpace(::GetSerializeSize(*this, SER_DISK, CLIENT_VERSION)))
