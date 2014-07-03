@@ -236,7 +236,7 @@ Value getwork(const Array& params, bool fHelp)
             "  \"target\" : little endian hash target\n"
             "If [data] is specified, tries to solve the block and returns true if it was successful.");
 
-    if (vNodes.empty())
+    if (!fTestNet && vNodes.empty())
         throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Netcoin is not connected!");
 
     if (IsInitialBlockDownload())
@@ -383,7 +383,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     if (strMode != "template")
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid mode");
 
-        if (vNodes.empty())
+       if (!fTestNet && vNodes.empty())
             throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "NetCoin is not connected!");
 
         if (IsInitialBlockDownload())
