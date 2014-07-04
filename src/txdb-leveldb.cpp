@@ -9,10 +9,10 @@
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 
-#include <leveldb/env.h>
-#include <leveldb/cache.h>
-#include <leveldb/filter_policy.h>
-#include <memenv/memenv.h>
+//#include <leveldb/env.h>
+//#include <leveldb/cache.h>
+//#include <leveldb/filter_policy.h>
+//#include <memenv/memenv.h>
 
 #include "kernel.h"
 #include "checkpoints.h"
