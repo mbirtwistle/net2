@@ -75,12 +75,12 @@
         <file alias="ctryptsy-btc">res/images/cryptsy-btc.png</file>
         <file alias="bter-ltc">res/images/bter-ltc.png</file>
         <file alias="bter-cny">res/images/bter-cny.png</file>
-        <file alias="bkg">home-background.jpg</file>
-        <file alias="backing">texture-6.jpg</file>
+        <file alias="wallet">res/images/wallet.mng</file>
+        <file alias="backing">res/images/texture-6.jpg</file>
+        <file alias="bkg">res/images/home-background.jpg</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>
-        <file alias="wallet">wallet.mng</file>
     </qresource>
     <qresource prefix="/translations">
         <file alias="en">locale/bitcoin_en.qm</file>
