@@ -6,6 +6,7 @@
 #ifndef BITCOIN_WALLET_H
 #define BITCOIN_WALLET_H
 
+#include <stdint.h>
 #include <string>
 #include <vector>
 
@@ -355,7 +356,7 @@ public:
 
 typedef std::map<std::string, std::string> mapValue_t;
 
-/*
+
 static void ReadOrderPos(int64_t& nOrderPos, mapValue_t& mapValue)
 {
     if (!mapValue.count("n"))
@@ -373,7 +374,7 @@ static void WriteOrderPos(const int64_t& nOrderPos, mapValue_t& mapValue)
         return;
     mapValue["n"] = i64tostr(nOrderPos);
 }
-*/
+
 
 /** A transaction with a bunch of additional info that only the owner cares about. 
  * It includes any unrecorded transactions needed to link it back to the block chain.
@@ -385,7 +386,6 @@ private:
 
 public:
     std::vector<CMerkleTx> vtxPrev;
-    //std::map<std::string, std::string> mapValue; in case mapvalue_t is not defined when we build
     mapValue_t mapValue;
     std::vector<std::pair<std::string, std::string> > vOrderForm;
     unsigned int fTimeReceivedIsTxTime;
@@ -468,6 +468,11 @@ public:
                     fSpent = true;
             }
             pthis->mapValue["spent"] = str;
+
+            WriteOrderPos(pthis->nOrderPos, pthis->mapValue);
+
+            if (nTimeSmart)
+                pthis->mapValue["timesmart"] = strprintf("%u", nTimeSmart);
         }
 
         nSerSize += SerReadWrite(s, *(CMerkleTx*)this, nType, nVersion,ser_action);
@@ -488,11 +493,17 @@ public:
                     pthis->vfSpent.push_back(c != '0');
             else
                 pthis->vfSpent.assign(vout.size(), fSpent);
+
+            ReadOrderPos(pthis->nOrderPos, pthis->mapValue);
+
+            pthis->nTimeSmart = mapValue.count("timesmart") ? (unsigned int)atoi64(pthis->mapValue["timesmart"]) : 0;
         }
 
         pthis->mapValue.erase("fromaccount");
         pthis->mapValue.erase("version");
         pthis->mapValue.erase("spent");
+        pthis->mapValue.erase("n");
+        pthis->mapValue.erase("timesmart");
     )
 
     // marks certain txout's as spent
@@ -821,13 +832,46 @@ public:
 
     IMPLEMENT_SERIALIZE
     (
+        CAccountingEntry& me = *const_cast<CAccountingEntry*>(this);
         if (!(nType & SER_GETHASH))
             READWRITE(nVersion);
         // Note: strAccount is serialized as part of the key, not here.
         READWRITE(nCreditDebit);
         READWRITE(nTime);
         READWRITE(strOtherAccount);
+
+        if (!fRead)
+        {
+            WriteOrderPos(nOrderPos, me.mapValue);
+
+            if (!(mapValue.empty() && _ssExtra.empty()))
+            {
+                CDataStream ss(nType, nVersion);
+                ss.insert(ss.begin(), '\0');
+                ss << mapValue;
+                ss.insert(ss.end(), _ssExtra.begin(), _ssExtra.end());
+                me.strComment.append(ss.str());
+            }
+        }
+
         READWRITE(strComment);
+
+        size_t nSepPos = strComment.find("\0", 0, 1);
+        if (fRead)
+        {
+            me.mapValue.clear();
+            if (std::string::npos != nSepPos)
+            {
+                CDataStream ss(std::vector<char>(strComment.begin() + nSepPos + 1, strComment.end()), nType, nVersion);
+                ss >> me.mapValue;
+                me._ssExtra = std::vector<char>(ss.begin(), ss.end());
+            }
+            ReadOrderPos(me.nOrderPos, me.mapValue);
+        }
+        if (std::string::npos != nSepPos)
+            me.strComment.erase(nSepPos);
+
+        me.mapValue.erase("n");
     )
 
 private:

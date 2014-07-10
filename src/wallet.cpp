@@ -516,20 +516,20 @@ bool CWallet::AddToWallet(const CWalletTx& wtxIn)
 #ifndef QT_GUI
         // If default receiving address gets used, replace it with a new one
         if (vchDefaultKey.IsValid()) {
-        CScript scriptDefaultKey;
-        scriptDefaultKey.SetDestination(vchDefaultKey.GetID());
-        BOOST_FOREACH(const CTxOut& txout, wtx.vout)
-        {
-            if (txout.scriptPubKey == scriptDefaultKey)
+            CScript scriptDefaultKey;
+            scriptDefaultKey.SetDestination(vchDefaultKey.GetID());
+            BOOST_FOREACH(const CTxOut& txout, wtx.vout)
             {
-                CPubKey newDefaultKey;
-                if (GetKeyFromPool(newDefaultKey, false))
+                if (txout.scriptPubKey == scriptDefaultKey)
                 {
-                    SetDefaultKey(newDefaultKey);
-                    SetAddressBookName(vchDefaultKey.GetID(), "");
+                    CPubKey newDefaultKey;
+                    if (GetKeyFromPool(newDefaultKey, false))
+                    {
+                        SetDefaultKey(newDefaultKey);
+                        SetAddressBookName(vchDefaultKey.GetID(), "");
+                    }
                 }
             }
-        }
         }
 #endif
         // since AddToWallet is called directly for self-originating transactions, check for consumption of own coins
@@ -688,22 +688,10 @@ int CWalletTx::GetRequestCount() const
 void CWalletTx::GetAmounts(list<pair<CTxDestination, int64_t> >& listReceived,
                            list<pair<CTxDestination, int64_t> >& listSent, int64_t& nFee, string& strSentAccount) const
 {
-    //nGeneratedImmature = nGeneratedMature = nFee = 0; //Netcoin removed for POS
-    nFee = 0;    
+    nFee = 0;
     listReceived.clear();
     listSent.clear();
     strSentAccount = strFromAccount;
-
-    /* Netcoin removed for POS
-    if (IsCoinBase())
-    {
-        if (GetBlocksToMaturity() > 0)
-            nGeneratedImmature = pwallet->GetCredit(*this);
-        else
-            nGeneratedMature = GetCredit();
-        return;
-    }
-    */
 
     // Compute fee:
     int64_t nDebit = GetDebit();
@@ -744,13 +732,6 @@ void CWalletTx::GetAmounts(list<pair<CTxDestination, int64_t> >& listReceived,
         }
 
         // If we are debited by the transaction, add the output as a "sent" entry
-
-        // Don't report 'change' txouts
-        /* Netcoin removed for POS
-            if (nDebit > 0 && pwallet->IsChange(txout))
-            continue;
-        */
-
         if (nDebit > 0)
             listSent.push_back(make_pair(address, txout.nValue));
 
@@ -764,13 +745,9 @@ void CWalletTx::GetAmounts(list<pair<CTxDestination, int64_t> >& listReceived,
 void CWalletTx::GetAccountAmounts(const string& strAccount, int64_t& nReceived,
                                   int64_t& nSent, int64_t& nFee) const
 {
-    // nGenerated = nReceived = nSent = nFee = 0; //Netcoin removed for POS
     nReceived = nSent = nFee = 0;
-    // int64_t allGeneratedImmature, allGeneratedMature, allFee; //Netcoin removed for POS
-    // allGeneratedImmature = allGeneratedMature = allFee = 0;
-    
-    int64_t allFee = 0;
 
+    int64_t allFee = 0;
     string strSentAccount;
     list<pair<CTxDestination, int64_t> > listReceived;
     list<pair<CTxDestination, int64_t> > listSent;
@@ -997,21 +974,21 @@ void CWallet::ResendWalletTransactions(bool fForce)
 {
     if (!fForce)
     {
-    // Do this infrequently and randomly to avoid giving away
-    // that these are our transactions.
-    static int64_t nNextTime;
-    if (GetTime() < nNextTime)
-        return;
-    bool fFirst = (nNextTime == 0);
-    nNextTime = GetTime() + GetRand(30 * 60);
-    if (fFirst)
-        return;
+        // Do this infrequently and randomly to avoid giving away
+        // that these are our transactions.
+        static int64_t nNextTime;
+        if (GetTime() < nNextTime)
+            return;
+        bool fFirst = (nNextTime == 0);
+        nNextTime = GetTime() + GetRand(30 * 60);
+        if (fFirst)
+            return;
 
-    // Only do it if there's been a new block since last time
-    static int64_t nLastTime;
-    if (nTimeBestReceived < nLastTime)
-        return;
-    nLastTime = GetTime();
+        // Only do it if there's been a new block since last time
+        static int64_t nLastTime;
+        if (nTimeBestReceived < nLastTime)
+            return;
+        nLastTime = GetTime();
     }
 
     // Rebroadcast any of our txes that aren't in a block yet
@@ -1033,7 +1010,7 @@ void CWallet::ResendWalletTransactions(bool fForce)
         {
             CWalletTx& wtx = *item.second;
             if (wtx.CheckTransaction())
-            wtx.RelayWalletTransaction(txdb);
+                wtx.RelayWalletTransaction(txdb);
             else
                 printf("ResendWalletTransactions() : CheckTransaction failed for transaction %s\n", wtx.GetHash().ToString().c_str());
         }
@@ -1312,12 +1289,12 @@ bool CWallet::SelectCoinsMinConf(int64_t nTargetValue, int nConfMine, int nConfT
 
         if (fDebug && GetBoolArg("-printpriority"))
         {
-	        //// debug print
-	        printf("SelectCoins() best subset: ");
-	        for (unsigned int i = 0; i < vValue.size(); i++)
-	            if (vfBest[i])
-	                printf("%s ", FormatMoney(vValue[i].first).c_str());
-	        printf("total %s\n", FormatMoney(nBest).c_str());
+            //// debug print
+            printf("SelectCoins() best subset: ");
+            for (unsigned int i = 0; i < vValue.size(); i++)
+                if (vfBest[i])
+                    printf("%s ", FormatMoney(vValue[i].first).c_str());
+            printf("total %s\n", FormatMoney(nBest).c_str());
         }
     }
 
@@ -1458,18 +1435,18 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                     // no coin control: send change to newly generated address
                     else
                     {
-                    // Note: We use a new key here to keep it from being obvious which side is the change.
-                    //  The drawback is that by not reusing a previous key, the change may be lost if a
-                    //  backup is restored, if the backup doesn't have the new private key for the change.
-                    //  If we reused the old key, it would be possible to add code to look for and
-                    //  rediscover unknown transactions that were written with keys of ours to recover
-                    //  post-backup change.
+                        // Note: We use a new key here to keep it from being obvious which side is the change.
+                        //  The drawback is that by not reusing a previous key, the change may be lost if a
+                        //  backup is restored, if the backup doesn't have the new private key for the change.
+                        //  If we reused the old key, it would be possible to add code to look for and
+                        //  rediscover unknown transactions that were written with keys of ours to recover
+                        //  post-backup change.
 
-                    // Reserve a new key pair from key pool
+                        // Reserve a new key pair from key pool
                         CPubKey vchPubKey;
                         assert(reservekey.GetReservedKey(vchPubKey)); // should never fail, as we just unlocked
 
-                    scriptChange.SetDestination(vchPubKey.GetID());
+                        scriptChange.SetDestination(vchPubKey.GetID());
                     }
 
                     // Insert change txn at random position:
@@ -2378,7 +2355,7 @@ bool CReserveKey::GetReservedKey(CPubKey& pubkey)
         else {
             if (pwallet->vchDefaultKey.IsValid()) {
                 printf("CReserveKey::GetReservedKey(): Warning: Using default key instead of a new key, top up your keypool!");
-            vchPubKey = pwallet->vchDefaultKey;
+                vchPubKey = pwallet->vchDefaultKey;
             } else
                 return false;
         }

@@ -7,7 +7,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_MAIN_H
 #define BITCOIN_MAIN_H
-
+#include <stdint.h>
 #include "bignum.h"
 #include "sync.h"
 #include "net.h"
@@ -31,10 +31,6 @@ class CInv;
 class CRequestTracker;
 class CNode;
 
-// Netcoin goes PoS at this block - supply will be about 32B coins
-
-
-
 static const unsigned int MAX_TX_COMMENT_LEN = 140;
 
 static const unsigned int MAX_BLOCK_SIZE = 1000000;
@@ -53,6 +49,7 @@ static const int64_t MAX_MONEY = 325000000 * COIN; // NetCoin: maximum of 325M c
 static const int64_t COIN_YEAR_REWARD = 2.5 * CENT;
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
+
 #ifdef USE_UPNP
 static const int fHaveUPnP = true;
 #else
@@ -67,11 +64,11 @@ static const int BLOCK_HEIGHT_POS_AND_DIGISHIELD_START = 388800; // this is the 
 static const int BLOCK_HEIGHT_FINALPOW =  450000;
 
 
-static const int BLOCK_HEIGHT_KGW_START_TESTNET = 60;
+static const int BLOCK_HEIGHT_KGW_START_TESTNET = 5;
 static const int BLOCK_HEIGHT_POS_AND_DIGISHIELD_START_TESTNET =120;
 static const int BLOCK_HEIGHT_FINALPOW_TESTNET =  240;
 
-static const uint256 hashGenesisBlockTestNet ("0x63141eded213b050e2aca8e6beb2070fa37c3520f1c492fd5a82a03c337e90f3");
+static const uint256 hashGenesisBlockTestNet("0x4a1ed64aed30d471b268b7a3ba634d4c63955700db462093a20e3f1f9db6a13f"); //("0x63141eded213b050e2aca8e6beb2070fa37c3520f1c492fd5a82a03c337e90f3");
 
 inline int64_t PastDrift(int64_t nTime)   { return nTime - 10 * 60; } // up to 10 minutes from the past
 inline int64_t FutureDrift(int64_t nTime) { return nTime + 10 * 60; } // up to 10 minutes from the future
@@ -119,7 +116,6 @@ extern bool fEnforceCanonical;
 
 // Minimum disk space required - used in CheckDiskSpace()
 static const uint64_t nMinDiskSpace = 52428800;
-
 
 class CReserveKey;
 class CTxDB;
@@ -466,7 +462,7 @@ class CTransaction
 {
 public:
     static const int LEGACY_VERSION_1 = 1;
-    static const int LEGACY_VERSION_2 = 2; //madprofezzor
+    static const int LEGACY_VERSION_2 = 2; 
     static const int CURRENT_VERSION = 3;  //POS fork
     int nVersion;
     std::vector<CTxIn> vin;
@@ -692,8 +688,8 @@ public:
     std::string ToString() const
     {
         std::string str;
-         str += IsCoinBase()? "Coinbase" : (IsCoinStake()? "Coinstake" : "CTransaction");
-        str += strprintf("(hash=%s, nTime=no, ver=%d, vin.size=%"PRIu64", vout.size=%"PRIu64", nLockTime=%d, strTxComment=%s)\n",
+        str += IsCoinBase()? "Coinbase" : (IsCoinStake()? "Coinstake" : "CTransaction");
+        str += strprintf("(hash=%s, nTime=no, ver=%d, vin.size=%"PRIszu", vout.size=%"PRIszu", nLockTime=%d, strComment=%s)\n",
             GetHash().ToString().substr(0,10).c_str(),
             nVersion,
             vin.size(),
@@ -870,7 +866,7 @@ public:
         return !(a == b);
     }
     int GetDepthInMainChain() const;
- 
+
 };
 
 
@@ -1288,7 +1284,6 @@ public:
 
     uint256 GetBlockHash() const
     {
-
         return *phashBlock;
     }
 
@@ -1425,6 +1420,7 @@ public:
     {
         hashPrev = 0;
         hashNext = 0;
+        blockHash = 0;
     }
 
     explicit CDiskBlockIndex(CBlockIndex* pindex) : CBlockIndex(*pindex)
@@ -1509,8 +1505,8 @@ public:
         str += CBlockIndex::ToString();
         str += strprintf("\n                hashBlock=%s, hashPrev=%s, hashNext=%s)",
             GetBlockHash().ToString().c_str(),
-            hashPrev.ToString().substr(0,20).c_str(),
-            hashNext.ToString().substr(0,20).c_str());
+            hashPrev.ToString().c_str(),
+            hashNext.ToString().c_str());
         return str;
     }
 
@@ -1653,7 +1649,6 @@ public:
         return pindex->nHeight;
     }
 };
-
 
 
 
