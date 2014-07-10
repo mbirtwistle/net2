@@ -2,12 +2,14 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file license.txt or http://www.opensource.org/licenses/mit-license.php.
-#include "db.h"
+
 #ifndef BITCOIN_TXDB_H
 #define BITCOIN_TXDB_H
 
 #define DATABASE_VERSION 2
 #endif  // BITCOIN_TXDB_H
+#include "db.h"
+#include <stdint.h>
 /** Access to the transaction database (blkindex.dat) */
 
 class CTxDB : public CDB

@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_NETBASE_H
 #define BITCOIN_NETBASE_H
-
+#include <stdint.h>
 #include <string>
 #include <vector>
 

@@ -6,7 +6,7 @@
 
 #ifndef _BITCOINRPC_H_
 #define _BITCOINRPC_H_ 1
-
+#include <stdint.h>
 #include <string>
 #include <list>
 #include <map>

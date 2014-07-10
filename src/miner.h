@@ -5,7 +5,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef NOVACOIN_MINER_H
 #define NOVACOIN_MINER_H
-
+#include <stdint.h>
 #include "main.h"
 #include "wallet.h"
 

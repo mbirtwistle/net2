@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef PPCOIN_KERNEL_H
 #define PPCOIN_KERNEL_H
-
+#include <stdint.h>
 #include "main.h"
 
 // MODIFIER_INTERVAL: time to elapse before new modifier is computed

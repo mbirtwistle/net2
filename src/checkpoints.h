@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_CHECKPOINT_H
 #define  BITCOIN_CHECKPOINT_H
-
+#include <stdint.h>
 #include <map>
 #include "net.h"
 #include "util.h"
