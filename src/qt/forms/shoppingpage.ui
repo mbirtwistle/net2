@@ -968,8 +968,7 @@
      border-bottom-color: #C2C7CB; /* same as pane color */
  }
 QWidget 
-{ background-image: url(:images/bkg); }
-{ background-image: url(:images/home-background.jpg); }
+{ background-image: url(:/images/res/images/home-background.png); }
 
 QPushButton
 {background:transparent}

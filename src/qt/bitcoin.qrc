@@ -99,6 +99,7 @@
         <file>res/images/WaterIDoShopImg.png</file>
         <file>res/images/WrolInfoShopImg.png</file>
         <file>res/images/ZetaSteamShopImg.png</file>
+        <file>res/images/home-background.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>
