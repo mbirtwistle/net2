@@ -71,13 +71,35 @@
         <file alias="amazonia">res/images/amazonia-imports.png</file>
         <file alias="cereal">res/images/alpenpower.png</file>
         <file alias="paper">res/images/paperwallet.png</file>
-        <file alias="cryptsy-ltc">res/images/cryptsy-ltc.png</file>
-        <file alias="ctryptsy-btc">res/images/cryptsy-btc.png</file>
-        <file alias="bter-ltc">res/images/bter-ltc.png</file>
-        <file alias="bter-cny">res/images/bter-cny.png</file>
         <file alias="wallet">res/images/wallet.mng</file>
         <file alias="backing">res/images/texture-6.jpg</file>
         <file alias="bkg">res/images/home-background.jpg</file>
+        <file>res/images/AlpenShopImg.png</file>
+        <file>res/images/AmazoniaShopImg.png</file>
+        <file>res/images/BitezzeShopImg.png</file>
+        <file>res/images/BterNetCnyImg.png</file>
+        <file>res/images/BterNetLtcImg.png</file>
+        <file>res/images/CoinStuffShopImg.png</file>
+        <file>res/images/CryptoDirectShopImg.png</file>
+        <file>res/images/CryptsyNetBtcImg.png</file>
+        <file>res/images/CryptsyNetLtcImg.png</file>
+        <file>res/images/eCasinoImg.png</file>
+        <file>res/images/ExplorerImg.png</file>
+        <file>res/images/ForumImg.png</file>
+        <file>res/images/GRKreationsShopImg.png</file>
+        <file>res/images/MasterMindShopImg.png</file>
+        <file>res/images/PaperWalletImg.png</file>
+        <file>res/images/PiccaShopImg.png</file>
+        <file>res/images/RetroTowersShopImg.png</file>
+        <file>res/images/ScryptStoreShopImg.png</file>
+        <file>res/images/ServerBrosShopImg.png</file>
+        <file>res/images/SongsOfLoveShopImg.png</file>
+        <file>res/images/StakingMachineShopImg.png</file>
+        <file>res/images/TuffWrapsShopImg.png</file>
+        <file>res/images/WaterIDoShopImg.png</file>
+        <file>res/images/WrolInfoShopImg.png</file>
+        <file>res/images/ZetaSteamShopImg.png</file>
+        <file>res/images/home-background.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>
