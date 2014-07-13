@@ -968,7 +968,7 @@
      border-bottom-color: #C2C7CB; /* same as pane color */
  }
 QWidget 
-{ background: url(:/images/bkg); } 
+{ background-image: url(:images/bkg); }
 
 QPushButton
 {background:transparent}
@@ -1023,8 +1023,8 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>364</width>
-            <height>206</height>
+            <width>755</width>
+            <height>528</height>
            </rect>
           </property>
           <property name="minimumSize">
@@ -1395,16 +1395,32 @@ QPushButton
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>0</y>
-            <width>739</width>
-            <height>628</height>
+            <y>-316</y>
+            <width>838</width>
+            <height>828</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_6">
            <property name="verticalSpacing">
             <number>20</number>
            </property>
-           <item row="6" column="5">
+           <item row="1" column="0" colspan="7">
+            <widget class="QLabel" name="label">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background:transparent;</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#ffffff;&quot;&gt;Spend your Netcoins at any of these great establishments!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Be sure to grab the latest client as more stores will be added over time.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="5">
             <spacer name="verticalSpacer_43">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1417,7 +1433,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="3" column="3">
+           <item row="4" column="3">
             <widget class="QPushButton" name="pushButton_44">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1474,7 +1490,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="2" column="5">
+           <item row="3" column="5">
             <spacer name="verticalSpacer_9">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1487,7 +1503,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="2" column="1">
+           <item row="3" column="1">
             <spacer name="verticalSpacer_7">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1500,7 +1516,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="10" column="3">
+           <item row="12" column="3">
             <spacer name="verticalSpacer_2">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1526,7 +1542,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="1" column="2">
+           <item row="2" column="2">
             <spacer name="horizontalSpacer_41">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1539,7 +1555,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="10" column="5">
+           <item row="12" column="5">
             <spacer name="verticalSpacer_3">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1552,7 +1568,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="4" column="3">
+           <item row="5" column="3">
             <spacer name="verticalSpacer_14">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1565,7 +1581,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="4" column="5">
+           <item row="5" column="5">
             <spacer name="verticalSpacer_15">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1578,7 +1594,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="3" column="5">
+           <item row="4" column="5">
             <widget class="QPushButton" name="pushButton_47">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1622,7 +1638,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="8" column="5">
+           <item row="9" column="5">
             <spacer name="verticalSpacer_48">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1635,7 +1651,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="9" column="1">
+           <item row="10" column="1">
             <widget class="QPushButton" name="pushButton_81">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1679,7 +1695,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="5" column="2">
+           <item row="6" column="2">
             <spacer name="horizontalSpacer_37">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1692,7 +1708,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="7" column="4">
+           <item row="8" column="4">
             <spacer name="horizontalSpacer_43">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1705,7 +1721,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="9" column="2">
+           <item row="10" column="2">
             <spacer name="horizontalSpacer_28">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1718,7 +1734,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="1" column="3">
+           <item row="2" column="3">
             <widget class="QPushButton" name="pushButton_43">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1762,7 +1778,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
+           <item row="2" column="0">
             <spacer name="horizontalSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1775,7 +1791,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="6" column="1">
+           <item row="7" column="1">
             <spacer name="verticalSpacer_38">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1788,7 +1804,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="9" column="5">
+           <item row="10" column="5">
             <widget class="QPushButton" name="pushButton_82">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1832,7 +1848,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="1" column="4">
+           <item row="2" column="4">
             <spacer name="horizontalSpacer_40">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1845,7 +1861,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="1" column="1">
+           <item row="2" column="1">
             <widget class="QPushButton" name="pushButton_40">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1889,7 +1905,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="8" column="1">
+           <item row="9" column="1">
             <spacer name="verticalSpacer_46">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1902,7 +1918,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="10" column="1">
+           <item row="12" column="1">
             <spacer name="verticalSpacer">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1915,7 +1931,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="7" column="1">
+           <item row="8" column="1">
             <widget class="QPushButton" name="pushButton_79">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1959,7 +1975,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="2" column="3">
+           <item row="3" column="3">
             <spacer name="verticalSpacer_8">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1972,7 +1988,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="5" column="5">
+           <item row="6" column="5">
             <widget class="QPushButton" name="pushButton_48">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2016,7 +2032,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="1" column="6">
+           <item row="2" column="6">
             <spacer name="horizontalSpacer_7">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2029,7 +2045,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="7" column="5">
+           <item row="8" column="5">
             <widget class="QPushButton" name="pushButton_49">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2073,7 +2089,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="9" column="0">
+           <item row="10" column="0">
             <spacer name="horizontalSpacer_6">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2086,7 +2102,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="3" column="4">
+           <item row="4" column="4">
             <spacer name="horizontalSpacer_39">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2099,7 +2115,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="3" column="0">
+           <item row="4" column="0">
             <spacer name="horizontalSpacer_2">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2112,7 +2128,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="3" column="6">
+           <item row="4" column="6">
             <spacer name="horizontalSpacer_9">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2125,7 +2141,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="7" column="2">
+           <item row="8" column="2">
             <spacer name="horizontalSpacer_31">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2138,7 +2154,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="3" column="1">
+           <item row="4" column="1">
             <widget class="QPushButton" name="pushButton_41">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2182,7 +2198,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="7" column="3">
+           <item row="8" column="3">
             <widget class="QPushButton" name="pushButton_78">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2226,7 +2242,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="9" column="4">
+           <item row="10" column="4">
             <spacer name="horizontalSpacer_44">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2239,7 +2255,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="6" column="3">
+           <item row="7" column="3">
             <spacer name="verticalSpacer_41">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -2252,7 +2268,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="9" column="6">
+           <item row="10" column="6">
             <spacer name="horizontalSpacer_25">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2265,7 +2281,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="4" column="1">
+           <item row="5" column="1">
             <spacer name="verticalSpacer_13">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -2278,7 +2294,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="7" column="6">
+           <item row="8" column="6">
             <spacer name="horizontalSpacer_11">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2291,7 +2307,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="3" column="2">
+           <item row="4" column="2">
             <spacer name="horizontalSpacer_38">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2304,7 +2320,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="1" column="5">
+           <item row="2" column="5">
             <widget class="QPushButton" name="pushButton_46">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2361,7 +2377,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="5" column="4">
+           <item row="6" column="4">
             <spacer name="horizontalSpacer_42">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2374,7 +2390,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="5" column="6">
+           <item row="6" column="6">
             <spacer name="horizontalSpacer_10">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2387,7 +2403,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="8" column="3">
+           <item row="9" column="3">
             <spacer name="verticalSpacer_47">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -2400,7 +2416,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="9" column="3">
+           <item row="10" column="3">
             <widget class="QPushButton" name="pushButton_80">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2444,7 +2460,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="6" column="1">
             <widget class="QPushButton" name="pushButton_42">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2488,7 +2504,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="5" column="0">
+           <item row="6" column="0">
             <spacer name="horizontalSpacer_3">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2501,7 +2517,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="5" column="3">
+           <item row="6" column="3">
             <widget class="QPushButton" name="pushButton_45">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2545,7 +2561,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="7" column="0">
+           <item row="8" column="0">
             <spacer name="horizontalSpacer_5">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2557,6 +2573,22 @@ QPushButton
               </size>
              </property>
             </spacer>
+           </item>
+           <item row="11" column="0" colspan="7">
+            <widget class="QLabel" name="label_2">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>90</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background:transparent;</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#ffffff;&quot;&gt;Are you a store owner?&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;If you would like to accept Netcoins at your store or service then please get in touch and we'll help you get set up.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;You will be added to the wallet and websites upon the next update.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
