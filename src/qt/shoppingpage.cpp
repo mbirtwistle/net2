@@ -11,6 +11,7 @@
 #include <QSortFilterProxyModel>
 #include <QClipboard>
 #include <QMessageBox>
+#include <QScrollArea>
 #include <QMenu>
 #include <QUrl>
 #include <QDesktopServices>
@@ -254,18 +255,119 @@ void ShoppingPage::selectNewAddress(const QModelIndex &parent, int begin, int en
 }
 
 
+//Exchange Links
+void ShoppingPage::on_pushButton_36_clicked()
+{
+    QString link="https://www.cryptsy.com/markets/view/134";
+    QDesktopServices::openUrl(QUrl(link));
+}
+
+void ShoppingPage::on_pushButton_39_clicked()
+{
+    QString link="https://www.cryptsy.com/markets/view/108";
+    QDesktopServices::openUrl(QUrl(link));
+}
+
+void ShoppingPage::on_pushButton_37_clicked()
+{
+    QString link="https://bter.com/trade/net_cny";
+    QDesktopServices::openUrl(QUrl(link));
+}
+
+void ShoppingPage::on_pushButton_38_clicked()
+{
+    QString link="https://bter.com/trade/net_ltc";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
 
+//Shopping Links
+void ShoppingPage::on_pushButton_40_clicked()
+{
+    QString link="http://alpenpowerpro.com/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_43_clicked()
+{
+    QString link="http://btcpipeshop.com/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_46_clicked()
+{
+    QString link="http://bitezze.com/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_41_clicked()
+{
+    QString link="http://www.cryptodirect.cf/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_44_clicked()
+{
+    QString link="http://www.grkreationsdirect.com/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_47_clicked()
+{
+    QString link="http://www.thestakingmachine.com/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_42_clicked()
+{
+    QString link="http://www.mintagemastermind.com/index.html";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_45_clicked()
+{
+    QString link="http://www.picca.co.uk/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_48_clicked()
+{
+    QString link="http://www.retrotowers.co.uk/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_79_clicked()
+{
+    QString link="http://scryptstore.com/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_78_clicked()
+{
+    QString link="http://zetasteam.com/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_49_clicked()
+{
+    QString link="http://thestakingmachine.com/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_81_clicked()
+{
+    QString link="http://tuffwraps.com/";
+    QDesktopServices::openUrl(QUrl(link));
+}
 
+void ShoppingPage::on_pushButton_80_clicked()
+{
+    QString link="http://waterido.com/";
+    QDesktopServices::openUrl(QUrl(link));
+}
+
+void ShoppingPage::on_pushButton_82_clicked()
+{
+    QString link="http://wrol.info/survival-gear-bitcoin/";
+    QDesktopServices::openUrl(QUrl(link));
+}

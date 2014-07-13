@@ -72,6 +72,44 @@ private slots:
     /** New entry/entries were added to address table */
     void selectNewAddress(const QModelIndex &parent, int begin, int end);
 
+    void on_pushButton_36_clicked();
+
+    void on_pushButton_39_clicked();
+
+    void on_pushButton_37_clicked();
+
+    void on_pushButton_38_clicked();
+
+    void on_pushButton_40_clicked();
+
+    void on_pushButton_43_clicked();
+
+    void on_pushButton_46_clicked();
+
+    void on_pushButton_41_clicked();
+
+    void on_pushButton_44_clicked();
+
+    void on_pushButton_47_clicked();
+
+    void on_pushButton_42_clicked();
+
+    void on_pushButton_45_clicked();
+
+    void on_pushButton_48_clicked();
+
+    void on_pushButton_79_clicked();
+
+    void on_pushButton_78_clicked();
+
+    void on_pushButton_49_clicked();
+
+    void on_pushButton_81_clicked();
+
+    void on_pushButton_80_clicked();
+
+    void on_pushButton_82_clicked();
+
 signals:
     void signMessage(QString addr);
     void verifyMessage(QString addr);
