@@ -2818,7 +2818,7 @@ bool LoadBlockIndex(bool fAllowNew)
 	block.print();
         assert(block.hashMerkleRoot == uint256("0xe5981b72a47998b021ee8995726282d1a575477897d9d5a319167601fffebb21"));
         assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
-        assert(fTestNet || block.CheckBlock());
+
 
         // Start new block file
         unsigned int nFile;
@@ -2835,13 +2835,14 @@ bool LoadBlockIndex(bool fAllowNew)
 
     string strPubKey = "";
 
+    if ((Checkpoints::hashSyncCheckpoint == 0) && (!Checkpoints::WriteSyncCheckpoint((!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet))))
+            return error("LoadBlockIndex() : failed to init sync checkpoint");
+
     // if checkpoint master key changed must reset sync-checkpoint
     if (!txdb.ReadCheckpointPubKey(strPubKey) || strPubKey != CSyncCheckpoint::strMasterPubKey)
     {
         // write checkpoint master key to db
         txdb.TxnBegin();
-        if ((Checkpoints::hashSyncCheckpoint == 0) && (!Checkpoints::WriteSyncCheckpoint((!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet))))
-                return error("LoadBlockIndex() : failed to init sync checkpoint");
         if (!txdb.WriteCheckpointPubKey(CSyncCheckpoint::strMasterPubKey))
             return error("LoadBlockIndex() : failed to write new checkpoint master key to db");
         if (!txdb.TxnCommit())
