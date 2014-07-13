@@ -979,7 +979,7 @@ QPushButton
       <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
@@ -1374,11 +1374,6 @@ QPushButton
             </spacer>
            </item>
           </layout>
-          <zorder>label_3</zorder>
-          <zorder>pushButton_36</zorder>
-          <zorder>pushButton_39</zorder>
-          <zorder>pushButton_37</zorder>
-          <zorder>pushButton_38</zorder>
          </widget>
         </widget>
        </item>
