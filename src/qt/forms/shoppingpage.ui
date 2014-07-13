@@ -969,6 +969,7 @@
  }
 QWidget 
 { background-image: url(:images/bkg); }
+{ background-image: url(:images/home-background.jpg); }
 
 QPushButton
 {background:transparent}
@@ -979,7 +980,7 @@ QPushButton
       <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>5</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
