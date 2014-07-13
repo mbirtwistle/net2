@@ -526,7 +526,7 @@ void StakeMiner(CWallet *pwallet)
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
     // Make this thread recognisable as the mining thread
-    RenameThread("pandacoin-miner");
+    RenameThread("netcoin-miner");
 
     bool fTryToSync = true;
 
@@ -562,6 +562,12 @@ void StakeMiner(CWallet *pwallet)
             }
         }
 
+        //netcoin - Wait until POS activation block height is reached
+        if (nBestHeight < !fTestNet ? BLOCK_HEIGHT_POS_AND_DIGISHIELD_START : BLOCK_HEIGHT_POS_AND_DIGISHIELD_START_TESTNET)
+        {
+            MilliSleep(60000);
+            continue;
+        }
         //
         // Create new block
         //
