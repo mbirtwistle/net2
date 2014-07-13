@@ -167,7 +167,8 @@ font: 9pt &quot;Biting My Nails&quot;;
       </palette>
      </property>
      <property name="styleSheet">
-      <string notr="true">background: url(:/images/bkg)</string>
+      <string notr="true">QWidget 
+{ background-image: url(:/images/res/images/home-background.png); }</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
