@@ -47,29 +47,14 @@
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/splash.png</file>
         <file alias="backg">res/images/wallet.png</file>
-        <file alias="zeta">res/images/zetasteam.png</file>
-        <file alias="wrollinf">res/images/wrolinfo.png</file>
-        <file alias="waterido">res/images/waterido.png</file>
-        <file alias="tuffwraps">res/images/tuffwraps.png</file>
-        <file alias="staking">res/images/the-staking-machine.png</file>
         <file alias="songs">res/images/songsoflove.png</file>
         <file alias="scrypt">res/images/scryptcoinstore.png</file>
-        <file alias="retro">res/images/retro-towers.png</file>
-        <file alias="picca">res/images/picca.png</file>
-        <file alias="lotto">res/images/netcoin-lottery.png</file>
-        <file alias="mintage">res/images/mintagemegamind.png</file>
         <file alias="indes">res/images/in-disguise.png</file>
-        <file alias="grk">res/images/grkreations.png</file>
         <file alias="forum">res/images/forum.png</file>
         <file alias="block">res/images/explorer.png</file>
-        <file alias="ecasino">res/images/ecasino.png</file>
-        <file alias="cryptod">res/images/cryptodirect.png</file>
         <file>res/images/cryptocoinstuff.png</file>
         <file alias="coinrush">res/images/coinrush.png</file>
         <file alias="breihost">res/images/breihost.png</file>
-        <file alias="bitezze">res/images/bitezze.png</file>
-        <file alias="amazonia">res/images/amazonia-imports.png</file>
-        <file alias="cereal">res/images/alpenpower.png</file>
         <file alias="paper">res/images/paperwallet.png</file>
         <file alias="wallet">res/images/wallet.mng</file>
         <file alias="backing">res/images/texture-6.jpg</file>
@@ -100,6 +85,7 @@
         <file>res/images/WrolInfoShopImg.png</file>
         <file>res/images/ZetaSteamShopImg.png</file>
         <file>res/images/home-background.png</file>
+        <file>res/images/LotteryImg.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>
