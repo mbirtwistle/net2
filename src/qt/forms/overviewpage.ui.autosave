@@ -4294,22 +4294,6 @@ font: 9pt &quot;Biting My Nails&quot;;
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QGridLayout" name="gridLayout_3">
-         <item row="0" column="1">
-          <widget class="QLabel" name="labelTransactionsStatus">
-           <property name="toolTip">
-            <string>The displayed information may be out of date. Your wallet automatically synchronizes with the NetCoin network after a connection is established, but this process has not completed yet.</string>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel { color: red; }</string>
-           </property>
-           <property name="text">
-            <string notr="true">(out of sync)</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
          <item row="0" column="2">
           <spacer name="horizontalSpacer">
            <property name="palette">
@@ -4467,6 +4451,22 @@ font: 9pt &quot;Biting My Nails&quot;;
             </size>
            </property>
           </spacer>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="labelTransactionsStatus">
+           <property name="toolTip">
+            <string>The displayed information may be out of date. Your wallet automatically synchronizes with the NetCoin network after a connection is established, but this process has not completed yet.</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel { color: red; }</string>
+           </property>
+           <property name="text">
+            <string notr="true">(out of sync)</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
          </item>
          <item row="0" column="0">
           <widget class="QLabel" name="label_4">
@@ -4952,19 +4952,6 @@ font: 9pt &quot;Biting My Nails&quot;;
         <zorder>listTransactions</zorder>
        </widget>
       </item>
-      <item row="3" column="1">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_8">
         <property name="text">
@@ -4977,7 +4964,6 @@ font: 9pt &quot;Biting My Nails&quot;;
      <zorder>frame_3</zorder>
      <zorder>frame_2</zorder>
      <zorder>label_7</zorder>
-     <zorder>verticalSpacer</zorder>
     </widget>
    </item>
   </layout>
