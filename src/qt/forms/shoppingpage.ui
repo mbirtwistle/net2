@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>818</width>
+    <width>812</width>
     <height>453</height>
    </rect>
   </property>
@@ -1004,7 +1004,7 @@ QPushButton
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>8</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
@@ -1069,7 +1069,7 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>818</width>
+            <width>812</width>
             <height>429</height>
            </rect>
           </property>
@@ -1509,7 +1509,7 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>784</width>
+            <width>778</width>
             <height>852</height>
            </rect>
           </property>
@@ -2782,7 +2782,7 @@ QPushButton
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>816</width>
+              <width>810</width>
               <height>427</height>
              </rect>
             </property>
@@ -2951,7 +2951,7 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>800</width>
+            <width>794</width>
             <height>411</height>
            </rect>
           </property>
@@ -3352,7 +3352,7 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>800</width>
+            <width>794</width>
             <height>411</height>
            </rect>
           </property>
@@ -4499,6 +4499,35 @@ QPushButton
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Page</string>
+      </attribute>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>19</y>
+         <width>801</width>
+         <height>401</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_23">
+        <item row="0" column="0">
+         <widget class="QWebView" name="webView">
+          <property name="url">
+           <url>
+            <string>http://netcoinfoundation.org/</string>
+           </url>
+          </property>
+          <property name="zoomFactor">
+           <double>0.699999988079071</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
      <widget class="QWidget" name="tab_20">
       <attribute name="title">
        <string>COMING_SOON</string>
@@ -5351,6 +5380,13 @@ QPushButton
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKitWidgets/QWebView</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../bitcoin.qrc"/>
  </resources>

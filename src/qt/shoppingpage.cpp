@@ -14,6 +14,7 @@
 #include <QScrollArea>
 #include <QMenu>
 #include <QUrl>
+#include <QtWebKit>
 #include <QDesktopServices>
 #ifdef USE_QRCODE
 #include "qrcodedialog.h"
