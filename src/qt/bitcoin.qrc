@@ -86,6 +86,10 @@
         <file>res/images/ZetaSteamShopImg.png</file>
         <file>res/images/home-background.png</file>
         <file>res/images/LotteryImg.png</file>
+        <file>res/images/SpendYourNetcoins.png</file>
+        <file>res/images/GiveToCharity.png</file>
+        <file>res/images/PurchaseNetcoins.png</file>
+        <file>res/images/FancyAFlutter.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>

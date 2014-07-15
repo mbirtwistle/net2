@@ -372,6 +372,7 @@ void ShoppingPage::on_pushButton_82_clicked()
     QDesktopServices::openUrl(QUrl(link));
 }
 
+//Gambling Links
 void ShoppingPage::on_pushButton_50_clicked()
 {
     QString link="http://ecasino.io/";
@@ -381,5 +382,12 @@ void ShoppingPage::on_pushButton_50_clicked()
 void ShoppingPage::on_pushButton_51_clicked()
 {
     QString link="http://lottery.netcoinfoundation.org/";
+    QDesktopServices::openUrl(QUrl(link));
+}
+
+//Charity Links
+void ShoppingPage::on_pushButton_57_clicked()
+{
+    QString link="http://www.songsoflove.org/netcoin/";
     QDesktopServices::openUrl(QUrl(link));
 }

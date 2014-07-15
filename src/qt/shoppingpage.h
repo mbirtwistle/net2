@@ -114,6 +114,8 @@ private slots:
 
     void on_pushButton_51_clicked();
 
+    void on_pushButton_57_clicked();
+
 signals:
     void signMessage(QString addr);
     void verifyMessage(QString addr);

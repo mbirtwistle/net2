@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>735</width>
+    <width>818</width>
     <height>453</height>
    </rect>
   </property>
@@ -446,6 +446,11 @@
     </disabled>
    </palette>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Address Book</string>
   </property>
@@ -462,7 +467,7 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item row="0" column="0">
+   <item row="0" column="0" rowspan="2" colspan="2">
     <widget class="QTabWidget" name="tabWidget">
      <property name="enabled">
       <bool>true</bool>
@@ -923,9 +928,26 @@
      </property>
      <property name="font">
       <font>
-       <family>Biting My Nails</family>
-       <pointsize>9</pointsize>
+       <family>Saab</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+       <underline>false</underline>
+       <strikeout>false</strikeout>
       </font>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::TabFocus</enum>
+     </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
+     <property name="toolTip">
+      <string/>
      </property>
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>
@@ -964,10 +986,10 @@
  }
 
  QTabBar::tab:selected {
-   
+
      border-bottom-color: #C2C7CB; /* same as pane color */
  }
-QWidget 
+QWidget
 { background-image: url(:/images/res/images/home-background.png); }
 
 QPushButton
@@ -978,8 +1000,11 @@ QPushButton
      <property name="tabPosition">
       <enum>QTabWidget::North</enum>
      </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
      <property name="currentIndex">
-      <number>8</number>
+      <number>0</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
@@ -991,13 +1016,31 @@ QPushButton
       <bool>false</bool>
      </property>
      <property name="movable">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
-     <widget class="QWidget" name="tab">
+     <widget class="QWidget" name="tab_exchanges">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <attribute name="title">
        <string>exchanges</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_8">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item row="0" column="0">
         <widget class="QScrollArea" name="scrollArea">
          <property name="autoFillBackground">
@@ -1026,8 +1069,8 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>572</width>
-            <height>418</height>
+            <width>818</width>
+            <height>429</height>
            </rect>
           </property>
           <property name="minimumSize">
@@ -1049,22 +1092,6 @@ QPushButton
            <property name="bottomMargin">
             <number>0</number>
            </property>
-           <item row="0" column="1" colspan="3">
-            <widget class="QLabel" name="label_3">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>60</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">Background:transparent</string>
-             </property>
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;You can buy more Netcoins at the following exchanges.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="1">
             <spacer name="verticalSpacer_12">
              <property name="orientation">
@@ -1413,6 +1440,32 @@ QPushButton
              </property>
             </widget>
            </item>
+           <item row="0" column="1" colspan="3">
+            <layout class="QGridLayout" name="gridLayout_21">
+             <property name="topMargin">
+              <number>20</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_3">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background:transparent</string>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/images/res/images/PurchaseNetcoins.png&quot;/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;You can never have too many Netcoins!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
           </layout>
          </widget>
         </widget>
@@ -1421,8 +1474,7 @@ QPushButton
      </widget>
      <widget class="QWidget" name="tab_2">
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
       <attribute name="title">
        <string>Shops</string>
@@ -1434,7 +1486,7 @@ QPushButton
           <bool>true</bool>
          </property>
          <property name="styleSheet">
-          <string notr="true"> background-image: url(:/images/res/images/home-background.png); 
+          <string notr="true"> background-image: url(:/images/res/images/home-background.png);
  background-attachment: fixed;</string>
          </property>
          <property name="frameShape">
@@ -1457,7 +1509,7 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>556</width>
+            <width>784</width>
             <height>852</height>
            </rect>
           </property>
@@ -1465,471 +1517,7 @@ QPushButton
            <property name="verticalSpacing">
             <number>20</number>
            </property>
-           <item row="2" column="1">
-            <widget class="QPushButton" name="pushButton_40">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/images/res/images/AlpenShopImg.png</normaloff>:/images/res/images/AlpenShopImg.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="3">
-            <spacer name="verticalSpacer_14">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="8" column="2">
-            <spacer name="horizontalSpacer_31">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="8" column="0">
-            <spacer name="horizontalSpacer_5">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="0">
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="3">
-            <widget class="QPushButton" name="pushButton_43">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/images/res/images/AmazoniaShopImg.png</normaloff>:/images/res/images/AmazoniaShopImg.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="1">
-            <spacer name="verticalSpacer_38">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="10" column="6">
-            <spacer name="horizontalSpacer_25">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="4">
-            <spacer name="horizontalSpacer_40">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="4" column="1">
-            <widget class="QPushButton" name="pushButton_41">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/images/res/images/CryptoDirectShopImg.png</normaloff>:/images/res/images/CryptoDirectShopImg.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="6">
-            <spacer name="horizontalSpacer_9">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="4" column="5">
-            <widget class="QPushButton" name="pushButton_47">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/images/res/images/StakingMachineShopImg.png</normaloff>:/images/res/images/StakingMachineShopImg.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="1">
-            <widget class="QPushButton" name="pushButton_42">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/images/res/images/MasterMindShopImg.png</normaloff>:/images/res/images/MasterMindShopImg.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="3">
-            <spacer name="verticalSpacer_8">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="4" column="3">
-            <widget class="QPushButton" name="pushButton_44">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/images/res/images/GRKreationsShopImg.png</normaloff>:/images/res/images/GRKreationsShopImg.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <spacer name="horizontalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="5" column="5">
-            <spacer name="verticalSpacer_15">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="8" column="3">
-            <widget class="QPushButton" name="pushButton_78">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/images/res/images/ZetaSteamShopImg.png</normaloff>:/images/res/images/ZetaSteamShopImg.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="6">
-            <spacer name="horizontalSpacer_10">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="10" column="0">
+           <item row="13" column="0">
             <spacer name="horizontalSpacer_6">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1942,64 +1530,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="2" column="5">
-            <widget class="QPushButton" name="pushButton_46">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/images/res/images/BitezzeShopImg.png</normaloff>:/images/res/images/BitezzeShopImg.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="4">
-            <spacer name="horizontalSpacer_43">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="10" column="1">
+           <item row="13" column="1">
             <widget class="QPushButton" name="pushButton_81">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2043,85 +1574,7 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="10" column="2">
-            <spacer name="horizontalSpacer_28">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="6" column="2">
-            <spacer name="horizontalSpacer_37">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="6">
-            <spacer name="horizontalSpacer_7">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="4" column="4">
-            <spacer name="horizontalSpacer_39">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="5" column="1">
-            <spacer name="verticalSpacer_13">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="6" column="4">
-            <spacer name="horizontalSpacer_42">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="2">
+           <item row="5" column="2">
             <spacer name="horizontalSpacer_41">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2134,103 +1587,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="10" column="4">
-            <spacer name="horizontalSpacer_44">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="10" column="5">
-            <widget class="QPushButton" name="pushButton_82">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/images/res/images/WrolInfoShopImg.png</normaloff>:/images/res/images/WrolInfoShopImg.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="3">
-            <spacer name="verticalSpacer_47">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="9" column="5">
-            <spacer name="verticalSpacer_48">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="0" column="1">
-            <spacer name="verticalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="8" column="5">
+           <item row="11" column="5">
             <widget class="QPushButton" name="pushButton_49">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2274,7 +1631,116 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="8" column="6">
+           <item row="7" column="5">
+            <widget class="QPushButton" name="pushButton_47">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/images/res/images/StakingMachineShopImg.png</normaloff>:/images/res/images/StakingMachineShopImg.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="6">
+            <spacer name="horizontalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="10" column="1">
+            <spacer name="verticalSpacer_38">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="6">
+            <spacer name="horizontalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="8" column="1">
+            <spacer name="verticalSpacer_13">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="11" column="6">
             <spacer name="horizontalSpacer_11">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2287,225 +1753,7 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="1" column="1" colspan="5">
-            <layout class="QVBoxLayout" name="verticalLayout">
-             <item>
-              <widget class="QLabel" name="label">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>80</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>540</width>
-                 <height>80</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background:transparent;</string>
-               </property>
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Spend your Netcoins at any of these great establishments!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;Be sure to grab the latest client as more stores will be added over time.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="0" column="3">
-            <spacer name="verticalSpacer_5">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="11" column="1">
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="11" column="3">
-            <spacer name="verticalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="10" column="3">
-            <widget class="QPushButton" name="pushButton_80">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/images/res/images/WaterIDoShopImg.png</normaloff>:/images/res/images/WaterIDoShopImg.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="12" column="1" colspan="5">
-            <layout class="QVBoxLayout" name="verticalLayout_2">
-             <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-              <widget class="QLabel" name="label_2">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>100</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>540</width>
-                 <height>90</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background:transparent;</string>
-               </property>
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#ffffff;&quot;&gt;Are you a store owner?&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;If you would like to accept Netcoins at your store or service then please get in touch .&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;You will be added to the wallet and websites upon the next update.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="6" column="3">
-            <widget class="QPushButton" name="pushButton_45">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/images/res/images/PiccaShopImg.png</normaloff>:/images/res/images/PiccaShopImg.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>161</width>
-               <height>82</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="3">
-            <spacer name="verticalSpacer_41">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="3" column="5">
-            <spacer name="verticalSpacer_9">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="3" column="1">
-            <spacer name="verticalSpacer_7">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="9" column="1">
+           <item row="12" column="1">
             <spacer name="verticalSpacer_46">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -2518,7 +1766,90 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="6" column="5">
+           <item row="1" column="1">
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="1">
+            <widget class="QPushButton" name="pushButton_40">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/images/res/images/AlpenShopImg.png</normaloff>:/images/res/images/AlpenShopImg.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="4">
+            <spacer name="horizontalSpacer_39">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="4">
+            <spacer name="horizontalSpacer_42">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="5">
             <widget class="QPushButton" name="pushButton_48">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2562,8 +1893,8 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="7" column="5">
-            <spacer name="verticalSpacer_43">
+           <item row="14" column="5">
+            <spacer name="verticalSpacer_3">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
@@ -2575,7 +1906,142 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="8" column="1">
+           <item row="15" column="1" colspan="5">
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+              <widget class="QLabel" name="label_2">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>100</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>540</width>
+                 <height>90</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background:transparent;</string>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; color:#ffffff;&quot;&gt;Are you a store owner?&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;If you would like to accept Netcoins at your store or service then please get in touch .&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;You will be added to the wallet and websites upon the next update.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="9" column="1">
+            <widget class="QPushButton" name="pushButton_42">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/images/res/images/MasterMindShopImg.png</normaloff>:/images/res/images/MasterMindShopImg.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="1">
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="14" column="3">
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="6" column="5">
+            <spacer name="verticalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="11" column="0">
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="3">
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="11" column="1">
             <widget class="QPushButton" name="pushButton_79">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2619,8 +2085,21 @@ QPushButton
              </property>
             </widget>
            </item>
-           <item row="11" column="5">
-            <spacer name="verticalSpacer_3">
+           <item row="11" column="2">
+            <spacer name="horizontalSpacer_31">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="8" column="5">
+            <spacer name="verticalSpacer_15">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
@@ -2632,7 +2111,300 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="0" column="5">
+           <item row="9" column="0">
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="8" column="3">
+            <spacer name="verticalSpacer_14">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="5">
+            <widget class="QPushButton" name="pushButton_46">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/images/res/images/BitezzeShopImg.png</normaloff>:/images/res/images/BitezzeShopImg.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="6">
+            <spacer name="horizontalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="6" column="1">
+            <spacer name="verticalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="6" column="3">
+            <spacer name="verticalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="1">
+            <widget class="QPushButton" name="pushButton_41">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/images/res/images/CryptoDirectShopImg.png</normaloff>:/images/res/images/CryptoDirectShopImg.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="3">
+            <widget class="QPushButton" name="pushButton_78">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/images/res/images/ZetaSteamShopImg.png</normaloff>:/images/res/images/ZetaSteamShopImg.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="4">
+            <spacer name="horizontalSpacer_43">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="10" column="3">
+            <spacer name="verticalSpacer_41">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="10" column="5">
+            <spacer name="verticalSpacer_43">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="13" column="3">
+            <widget class="QPushButton" name="pushButton_80">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/images/res/images/WaterIDoShopImg.png</normaloff>:/images/res/images/WaterIDoShopImg.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="4">
+            <spacer name="horizontalSpacer_44">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="5">
             <spacer name="verticalSpacer_6">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -2645,7 +2417,204 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="4" column="2">
+           <item row="5" column="0">
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="13" column="2">
+            <spacer name="horizontalSpacer_28">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="13" column="5">
+            <widget class="QPushButton" name="pushButton_82">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/images/res/images/WrolInfoShopImg.png</normaloff>:/images/res/images/WrolInfoShopImg.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="6">
+            <spacer name="horizontalSpacer_25">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="3">
+            <widget class="QPushButton" name="pushButton_43">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/images/res/images/AmazoniaShopImg.png</normaloff>:/images/res/images/AmazoniaShopImg.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="4">
+            <spacer name="horizontalSpacer_40">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="2">
+            <spacer name="horizontalSpacer_37">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="3">
+            <widget class="QPushButton" name="pushButton_45">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/images/res/images/PiccaShopImg.png</normaloff>:/images/res/images/PiccaShopImg.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="2">
             <spacer name="horizontalSpacer_38">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -2658,18 +2627,110 @@ QPushButton
              </property>
             </spacer>
            </item>
-           <item row="6" column="0">
-            <spacer name="horizontalSpacer_3">
+           <item row="7" column="3">
+            <widget class="QPushButton" name="pushButton_44">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/images/res/images/GRKreationsShopImg.png</normaloff>:/images/res/images/GRKreationsShopImg.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>161</width>
+               <height>82</height>
+              </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="3">
+            <spacer name="verticalSpacer_47">
              <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+              <enum>Qt::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>40</width>
-               <height>20</height>
+               <width>20</width>
+               <height>40</height>
               </size>
              </property>
             </spacer>
+           </item>
+           <item row="12" column="5">
+            <spacer name="verticalSpacer_48">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1" colspan="5">
+            <layout class="QGridLayout" name="gridLayout_19">
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <property name="spacing">
+              <number>6</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label">
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>523</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background:transparent</string>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/images/res/images/SpendYourNetcoins.png&quot;/&gt;&lt;br/&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Make sure you have the latest client as more stores will be added.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -2721,14 +2782,14 @@ QPushButton
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>733</width>
-              <height>434</height>
+              <width>816</width>
+              <height>427</height>
              </rect>
             </property>
             <layout class="QGridLayout" name="gridLayout_18">
              <item row="0" column="0">
               <layout class="QGridLayout" name="gridLayout_11">
-               <item row="1" column="1">
+               <item row="2" column="1">
                 <widget class="QPushButton" name="pushButton_57">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -2775,7 +2836,7 @@ QPushButton
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
+               <item row="2" column="0">
                 <spacer name="horizontalSpacer_27">
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -2788,7 +2849,7 @@ QPushButton
                  </property>
                 </spacer>
                </item>
-               <item row="2" column="1">
+               <item row="3" column="1">
                 <spacer name="verticalSpacer_31">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
@@ -2801,7 +2862,7 @@ QPushButton
                  </property>
                 </spacer>
                </item>
-               <item row="0" column="1">
+               <item row="1" column="1">
                 <spacer name="verticalSpacer_32">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
@@ -2814,7 +2875,7 @@ QPushButton
                  </property>
                 </spacer>
                </item>
-               <item row="1" column="2">
+               <item row="2" column="2">
                 <spacer name="horizontalSpacer_29">
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -2826,6 +2887,29 @@ QPushButton
                   </size>
                  </property>
                 </spacer>
+               </item>
+               <item row="0" column="0" colspan="3">
+                <layout class="QGridLayout" name="gridLayout_20">
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_8">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background:transparent</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/images/res/images/GiveToCharity.png&quot;/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Why not give a little to charity?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
               </layout>
              </item>
@@ -2867,8 +2951,8 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>572</width>
-            <height>418</height>
+            <width>800</width>
+            <height>411</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_12">
@@ -3216,20 +3300,27 @@ QPushButton
             </widget>
            </item>
            <item row="0" column="1" colspan="3">
-            <widget class="QLabel" name="label_5">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>20</height>
-              </size>
+            <layout class="QGridLayout" name="gridLayout_22">
+             <property name="bottomMargin">
+              <number>0</number>
              </property>
-             <property name="styleSheet">
-              <string notr="true">background:transparent</string>
-             </property>
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Try your luck at the websites below!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_5">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background:transparent;</string>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/images/res/images/FancyAFlutter.png&quot;/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -3261,8 +3352,8 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>717</width>
-            <height>418</height>
+            <width>800</width>
+            <height>411</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_15">
@@ -3707,6 +3798,47 @@ QPushButton
          <property name="icon">
           <iconset resource="../bitcoin.qrc">
            <normaloff>:/images/scrypt</normaloff>:/images/scrypt</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>191</width>
+           <height>81</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="pushButton_59">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>191</width>
+           <height>81</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>191</width>
+           <height>81</height>
+          </size>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../bitcoin.qrc">
+           <normaloff>:/images/coinrush</normaloff>:/images/coinrush</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -5131,99 +5263,93 @@ QPushButton
      </widget>
     </widget>
    </item>
+   <item row="1" column="1">
+    <widget class="QTableView" name="tableView">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>1</width>
+       <height>1</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>1</width>
+       <height>1</height>
+      </size>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>23</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>23</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>242</red>
+           <green>207</green>
+           <blue>9</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::CustomContextMenu</enum>
+     </property>
+     <property name="toolTip">
+      <string>Double-click to edit address or label</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="lineWidth">
+      <number>10</number>
+     </property>
+     <property name="tabKeyNavigation">
+      <bool>false</bool>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+    </widget>
+   </item>
   </layout>
-  <widget class="QTableView" name="tableView">
-   <property name="geometry">
-    <rect>
-     <x>744</x>
-     <y>235</y>
-     <width>1</width>
-     <height>1</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>1</width>
-     <height>1</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>1</width>
-     <height>1</height>
-    </size>
-   </property>
-   <property name="palette">
-    <palette>
-     <active>
-      <colorrole role="Base">
-       <brush brushstyle="SolidPattern">
-        <color alpha="255">
-         <red>255</red>
-         <green>23</green>
-         <blue>255</blue>
-        </color>
-       </brush>
-      </colorrole>
-     </active>
-     <inactive>
-      <colorrole role="Base">
-       <brush brushstyle="SolidPattern">
-        <color alpha="255">
-         <red>255</red>
-         <green>23</green>
-         <blue>255</blue>
-        </color>
-       </brush>
-      </colorrole>
-     </inactive>
-     <disabled>
-      <colorrole role="Base">
-       <brush brushstyle="SolidPattern">
-        <color alpha="255">
-         <red>242</red>
-         <green>207</green>
-         <blue>9</blue>
-        </color>
-       </brush>
-      </colorrole>
-     </disabled>
-    </palette>
-   </property>
-   <property name="contextMenuPolicy">
-    <enum>Qt::CustomContextMenu</enum>
-   </property>
-   <property name="toolTip">
-    <string>Double-click to edit address or label</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <property name="lineWidth">
-    <number>10</number>
-   </property>
-   <property name="tabKeyNavigation">
-    <bool>false</bool>
-   </property>
-   <property name="alternatingRowColors">
-    <bool>true</bool>
-   </property>
-   <property name="selectionMode">
-    <enum>QAbstractItemView::SingleSelection</enum>
-   </property>
-   <property name="selectionBehavior">
-    <enum>QAbstractItemView::SelectRows</enum>
-   </property>
-  </widget>
  </widget>
  <resources>
   <include location="../bitcoin.qrc"/>
