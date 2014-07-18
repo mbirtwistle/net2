@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>812</width>
-    <height>453</height>
+    <width>824</width>
+    <height>648</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -454,7 +454,7 @@
   <property name="windowTitle">
    <string>Address Book</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_4">
+  <layout class="QGridLayout" name="gridLayout_23">
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -467,7 +467,7 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item row="0" column="0" rowspan="2" colspan="2">
+   <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="enabled">
       <bool>true</bool>
@@ -1069,8 +1069,8 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>812</width>
-            <height>429</height>
+            <width>824</width>
+            <height>628</height>
            </rect>
           </property>
           <property name="minimumSize">
@@ -1509,7 +1509,7 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>778</width>
+            <width>789</width>
             <height>852</height>
            </rect>
           </property>
@@ -2782,8 +2782,8 @@ QPushButton
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>810</width>
-              <height>427</height>
+              <width>822</width>
+              <height>626</height>
              </rect>
             </property>
             <layout class="QGridLayout" name="gridLayout_18">
@@ -2951,8 +2951,8 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>794</width>
-            <height>411</height>
+            <width>806</width>
+            <height>610</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_12">
@@ -3352,8 +3352,8 @@ QPushButton
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>794</width>
-            <height>411</height>
+            <width>806</width>
+            <height>610</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_15">
@@ -4503,30 +4503,20 @@ QPushButton
       <attribute name="title">
        <string>Page</string>
       </attribute>
-      <widget class="QWidget" name="gridLayoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>9</x>
-         <y>19</y>
-         <width>801</width>
-         <height>401</height>
-        </rect>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_23">
-        <item row="0" column="0">
-         <widget class="QWebView" name="webView">
-          <property name="url">
-           <url>
-            <string>http://netcoinfoundation.org/</string>
-           </url>
-          </property>
-          <property name="zoomFactor">
-           <double>0.699999988079071</double>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <widget class="QWebView" name="webView">
+         <property name="url">
+          <url>
+           <string>http://netcoinfoundation.org/</string>
+          </url>
+         </property>
+         <property name="zoomFactor">
+          <double>0.800000011920929</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="tab_20">
       <attribute name="title">
@@ -5292,93 +5282,99 @@ QPushButton
      </widget>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QTableView" name="tableView">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>1</width>
-       <height>1</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>1</width>
-       <height>1</height>
-      </size>
-     </property>
-     <property name="palette">
-      <palette>
-       <active>
-        <colorrole role="Base">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>23</green>
-           <blue>255</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </active>
-       <inactive>
-        <colorrole role="Base">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>255</red>
-           <green>23</green>
-           <blue>255</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </inactive>
-       <disabled>
-        <colorrole role="Base">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>242</red>
-           <green>207</green>
-           <blue>9</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </disabled>
-      </palette>
-     </property>
-     <property name="contextMenuPolicy">
-      <enum>Qt::CustomContextMenu</enum>
-     </property>
-     <property name="toolTip">
-      <string>Double-click to edit address or label</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <property name="lineWidth">
-      <number>10</number>
-     </property>
-     <property name="tabKeyNavigation">
-      <bool>false</bool>
-     </property>
-     <property name="alternatingRowColors">
-      <bool>true</bool>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::SingleSelection</enum>
-     </property>
-     <property name="selectionBehavior">
-      <enum>QAbstractItemView::SelectRows</enum>
-     </property>
-    </widget>
-   </item>
   </layout>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>811</x>
+     <y>452</y>
+     <width>1</width>
+     <height>1</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>1</width>
+     <height>1</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1</width>
+     <height>1</height>
+    </size>
+   </property>
+   <property name="palette">
+    <palette>
+     <active>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>23</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </active>
+     <inactive>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>23</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </inactive>
+     <disabled>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>242</red>
+         <green>207</green>
+         <blue>9</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </disabled>
+    </palette>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::CustomContextMenu</enum>
+   </property>
+   <property name="toolTip">
+    <string>Double-click to edit address or label</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="lineWidth">
+    <number>10</number>
+   </property>
+   <property name="tabKeyNavigation">
+    <bool>false</bool>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::SingleSelection</enum>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>

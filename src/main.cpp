@@ -308,7 +308,7 @@ bool CTransaction::ReadFromDisk(COutPoint prevout)
 
 bool CTxOut::IsDust() const
 {
-    // Pandacoin: IsDust() detection disabled, allows any valid dust to be relayed.
+    // Netcoin: IsDust() detection disabled, allows any valid dust to be relayed.
     // The fees imposed on each dust txo is considered sufficient spam deterrant.
     return false;
 }
@@ -2615,7 +2615,7 @@ bool CBlock::SignBlock(CWallet& wallet, int64_t nFees)
         {
             if (nTime >= max(pindexBest->GetPastTimeLimit()+1, PastDrift(pindexBest->GetBlockTime())))
             {
-                // Pandacoin: since I've had to get rid of CTransaction's nTime,
+                // Netcoin: since I've had to get rid of CTransaction's nTime,
                 // it's no longer possible to alter the nTime to fit the past block drift
                 nTime = nTxTime;
 
