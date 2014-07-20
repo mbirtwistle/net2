@@ -46,9 +46,15 @@ static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
 static const int64_t DUST_SOFT_LIMIT = 100000000;
 static const int64_t DUST_HARD_LIMIT = 1000000;
 static const int64_t MAX_MONEY = 325000000 * COIN; // NetCoin: maximum of 325M coins
-static const int64_t COIN_YEAR_REWARD = 2.5 * CENT;
+static const int64_t MAX_MINT_PROOF_OF_STAKE_1 = 3 * CENT;	// 3% annual interest
+static const int64_t MAX_MINT_PROOF_OF_STAKE_2 = 30 * CENT;	// 30% annual interest
+static const int64_t MAX_MINT_PROOF_OF_STAKE_3 = 300 * CENT;	// 300% annual interest
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
+
+// netcoin Coin Age uses a diminishing returns rule to encourage and reward frequent staking attempts
+static const int COINAGE_TIME_DILATION_HALFLIFE_DAYS = 90;
+static const int COINAGE_FULL_REWARD_DAYS = 14;
 
 #ifdef USE_UPNP
 static const int fHaveUPnP = true;
@@ -142,7 +148,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey);
 bool CheckProofOfWork(uint256 hash, unsigned int nBits);
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlock* pblock, bool fProofOfStake);
 int64_t GetProofOfWorkReward(int nHeight, int64_t nFees, uint256 prevHash);
-int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees);
+int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nCoinValue, int64_t nFees);
 unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime);
 unsigned int ComputeMinStake(unsigned int nBase, int64_t nTime, unsigned int nBlockTime);
 int GetNumBlocksOfPeers();
@@ -745,7 +751,7 @@ public:
     bool ClientConnectInputs();
     bool CheckTransaction() const;
     bool AcceptToMemoryPool(CTxDB& txdb, bool fCheckInputs=true, bool* pfMissingInputs=NULL);
-    bool GetCoinAge(CTxDB& txdb, unsigned int nTxTime, uint64_t& nCoinAge) const;  // ppcoin: get transaction coin age
+    bool GetCoinAge(CTxDB& txdb, unsigned int nTxTime, uint64_t& nCoinAge, int64_t& nCoinValue) const;  // ppcoin: get transaction coin age
 
 protected:
     const CTxOut& GetOutputFor(const CTxIn& input, const MapPrevTx& inputs) const;
