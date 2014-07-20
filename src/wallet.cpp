@@ -19,8 +19,9 @@
 #include "main.h"
 using namespace std;
 
-unsigned int nStakeSplitAge = 1 * 24 * 60 * 60; //Netcoin TODO - check what this means
-int64_t nStakeCombineThreshold = 1000 * COIN;   //Netcoin TODO
+unsigned int nStakeSplitAge = 1 * 24 * 60 * 60; // If you find a POS block with coins aged less than this, it assumes you are staking well over the nStakeCombineThreshold and are finding blocks too quickly (
+// ( probably have a very high value compared to the network). It will split the payout back to you into two blocks, to give other people a better chance to stake.
+int64_t nStakeCombineThreshold = 10000000 * COIN;   //When appending coins to submit as a POS block, no further coins are added if this total is achieved
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -1744,11 +1745,12 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     // Calculate coin age reward
     {
         uint64_t nCoinAge;
+        int64_t nCoinValue;
         CTxDB txdb("r");
-        if (!txNew.GetCoinAge(txdb, nTxTime, nCoinAge))
+        if (!txNew.GetCoinAge(txdb, nTxTime, nCoinAge, nCoinValue))
             return error("CreateCoinStake : failed to calculate coin age");
 
-        int64_t nReward = GetProofOfStakeReward(nCoinAge, nFees);
+        int64_t nReward = GetProofOfStakeReward(nCoinAge, nCoinValue, nFees);
         if (nReward <= 0)
             return false;
 
@@ -2296,7 +2298,7 @@ void CWallet::FixSpentCoins(int& nMismatchFound, int64_t& nBalanceInQuestion, bo
         {
             if (IsMine(pcoin->vout[n]) && pcoin->IsSpent(n) && (txindex.vSpent.size() <= n || txindex.vSpent[n].IsNull()))
             {
-                printf("FixSpentCoins found lost coin %s PND %s[%d], %s\n",
+                printf("FixSpentCoins found lost coin %s NET %s[%d], %s\n",
                     FormatMoney(pcoin->vout[n].nValue).c_str(), pcoin->GetHash().ToString().c_str(), n, fCheckOnly? "repair not attempted" : "repairing");
                 nMismatchFound++;
                 nBalanceInQuestion += pcoin->vout[n].nValue;
@@ -2308,7 +2310,7 @@ void CWallet::FixSpentCoins(int& nMismatchFound, int64_t& nBalanceInQuestion, bo
             }
             else if (IsMine(pcoin->vout[n]) && !pcoin->IsSpent(n) && (txindex.vSpent.size() > n && !txindex.vSpent[n].IsNull()))
             {
-                printf("FixSpentCoins found spent coin %s PND %s[%d], %s\n",
+                printf("FixSpentCoins found spent coin %s NET %s[%d], %s\n",
                     FormatMoney(pcoin->vout[n].nValue).c_str(), pcoin->GetHash().ToString().c_str(), n, fCheckOnly? "repair not attempted" : "repairing");
                 nMismatchFound++;
                 nBalanceInQuestion += pcoin->vout[n].nValue;
