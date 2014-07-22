@@ -3,7 +3,8 @@
 // Copyright (c) 2011-2012 Litecoin Developers
 // Copyright (c) 2013 Luckycoin Developers
 // Copyright (c) 2013 Florincoin Developers
-// Copyright (c) 2013 NetCoin Developers
+// Copyright (c) 2013 PandaCoin Developers
+// Copyright (c) 2014 NetCoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -308,7 +309,7 @@ bool CTransaction::ReadFromDisk(COutPoint prevout)
 
 bool CTxOut::IsDust() const
 {
-    // Pandacoin: IsDust() detection disabled, allows any valid dust to be relayed.
+    // Netcoin: IsDust() detection disabled, allows any valid dust to be relayed.
     // The fees imposed on each dust txo is considered sufficient spam deterrant.
     return false;
 }
@@ -2673,7 +2674,7 @@ bool CBlock::SignBlock(CWallet& wallet, int64_t nFees)
         {
             if (nTime >= max(pindexBest->GetPastTimeLimit()+1, PastDrift(pindexBest->GetBlockTime())))
             {
-                // Pandacoin: since I've had to get rid of CTransaction's nTime,
+                // Netcoin: since I've had to get rid of CTransaction's nTime,
                 // it's no longer possible to alter the nTime to fit the past block drift
                 nTime = nTxTime;
 

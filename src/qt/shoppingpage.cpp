@@ -12,6 +12,7 @@
 #include <QClipboard>
 #include <QMessageBox>
 #include <QScrollArea>
+#include <QtWebKit/QWebView>
 #include <QMenu>
 #include <QUrl>
 #include <QDesktopServices>

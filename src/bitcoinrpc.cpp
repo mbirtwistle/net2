@@ -223,12 +223,12 @@ Value stop(const Array& params, bool fHelp)
         throw runtime_error(
             "stop <detach>\n"
             "<detach> is true or false to detach the database or not for this stop only\n"
-            "Stop Pandacoin server (and possibly override the detachdb config value).");
+            "Stop Netcoin server (and possibly override the detachdb config value).");
     // Shutdown will take long enough that the response should get back
     if (params.size() > 0)
         bitdb.SetDetach(params[0].get_bool());
     StartShutdown();
-    return "Pandacoin server stopping";
+    return "Netcoin server stopping";
 }
 
 

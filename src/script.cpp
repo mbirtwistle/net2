@@ -316,7 +316,7 @@ static bool IsCanonicalSignature(const valtype &vchSig) {
         return error("Non-canonical signature: S value excessively padded");
 
 /** I am forced to disabled this (thus allowing ECDSA signature malleability)
-    because the Pandacoin blockchain unfortunately contains S-high signatures...
+    because the Netcoin blockchain unfortunately contains S-high signatures...
     // If the S value is above the order of the curve divided by two, its
     // complement modulo the order could have been used instead, which is
     // one byte shorter when encoded correctly.
