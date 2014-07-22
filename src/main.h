@@ -52,9 +52,10 @@ static const int64_t MAX_MINT_PROOF_OF_STAKE_3 = 300 * CENT;	// 300% annual inte
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
 
+
 // netcoin Coin Age uses a diminishing returns rule to encourage and reward frequent staking attempts
 static const int COINAGE_TIME_DILATION_HALFLIFE_DAYS = 90;
-static const int COINAGE_FULL_REWARD_DAYS = 14;
+static const int COINAGE_FULL_REWARD_DAYS = 30;
 
 #ifdef USE_UPNP
 static const int fHaveUPnP = true;
@@ -66,7 +67,7 @@ static const int fHaveUPnP = false;
 static const uint256 hashGenesisBlock("0x38624e3834cfdc4410a5acbc32f750171aadad9620e6ba6d5c73201c16f7c8d1");
 
 static const int BLOCK_HEIGHT_KGW_START = 218500; // HISTORICAL HARD FORK. DO NOT CHANGE
-static const int BLOCK_HEIGHT_POS_AND_DIGISHIELD_START = 388800; // this is the same block where the mining reward also drops to 128
+static const int BLOCK_HEIGHT_POS_AND_DIGISHIELD_START = 425000; //
 static const int BLOCK_HEIGHT_FINALPOW =  1296000; // this is where the proof of work reward drops to 1 coin. Approx 2.5 years after genesis block
 
 
