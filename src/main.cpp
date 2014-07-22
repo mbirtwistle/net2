@@ -1066,6 +1066,12 @@ int64_t GetProofOfWorkReward(int nHeight, int64_t nFees, uint256 prevHash)
 	// Subsidy is cut in half every 129,600 blocks, which will occur approximately every 3 months
 	nSubsidy >>= (nHeight / 129600); 
 
+   if (nHeight >= BLOCK_HEIGHT_POS_AND_DIGISHIELD_START)
+    {
+        nSubsidy += nSubsidy / 4;  //25% boost to all POW miners to encourage new wallet adoption
+        nSubsidy *= 2;             //adjust for POW blocks target changing from 1 to 2 minutes when POW/POS goes live
+    }
+
 	return nSubsidy + nFees;
 }
 
@@ -1292,8 +1298,8 @@ unsigned int static GetNextWorkRequired_KGW(const CBlockIndex* pindexLast)
 
 
 
-// netcoin: Digishield inspired difficulty algorithm
-// netcoin-WHO: Digibyte code was simplified and reduced by assuming nInterval==1
+// Netcoin: Digishield inspired difficulty algorithm
+//  Digibyte code was simplified and reduced by assuming nInterval==1
 //  added fProofOfStake to selectively locate last two blocks of the requested type for the time comparison.
 // includes extra flag to backtrack either Proof of Stake or Proof of Work blocks in the chain
 unsigned int GetNextTrust_DigiShield(const CBlockIndex* pindexLast, bool fProofOfStake)
@@ -1303,8 +1309,8 @@ unsigned int GetNextTrust_DigiShield(const CBlockIndex* pindexLast, bool fProofO
     // find the previous 2 blocks of the requested type (either POS or POW)
     const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, fProofOfStake);
 
-
-    int64_t retargetTimespan = 60;
+    // netcoin POW and POS blocks each separately retarget to 2 minutes, giving 1 minute overall average block target time.
+    int64_t retargetTimespan = nTargetSpacing * 2;
 
     // Genesis block,  or first POS block not yet mined
     if (pindexPrev == NULL) return bnProofOfWorkLimit.getuint();
