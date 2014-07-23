@@ -2674,7 +2674,7 @@ bool CBlock::SignBlock(CWallet& wallet, int64_t nFees)
         {
             if (nTime >= max(pindexBest->GetPastTimeLimit()+1, PastDrift(pindexBest->GetBlockTime())))
             {
-                // Netcoin: since I've had to get rid of CTransaction's nTime,
+                // Pandacoin: since I've had to get rid of CTransaction's nTime,
                 // it's no longer possible to alter the nTime to fit the past block drift
                 nTime = nTxTime;
 
