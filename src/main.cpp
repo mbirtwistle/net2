@@ -1094,7 +1094,7 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nCoinValue,  int64_t nFe
     int64 nSubsidy = nCoinAge * nRewardCoinYear * 33 / (365 * 33 + 8); //integer equivalent of nCoinAge * nRewardCoinYear / 365.2424242..
 
     if (fDebug && GetBoolArg("-printcreation"))
-        printf("GetProofOfStakeReward(): create=%s nCoinAge=%"PRI64d" nFees=%d\n", FormatMoney(nSubsidy).c_str(), nCoinAge, nFees);
+        printf("GetProofOfStakeReward(): create=%s nCoinAge=%"PRI64d" nCoinValue=%s nFees=%"PRI64d"\n", FormatMoney(nSubsidy).c_str(), nCoinAge, FormatMoney(nCoinValue).c_str(), nFees);
 
     return nSubsidy + nFees;
 }
@@ -1322,8 +1322,6 @@ unsigned int GetNextTrust_DigiShield(const CBlockIndex* pindexLast, bool fProofO
 
     // Limit adjustment step
     int64_t nActualTimespan = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
-    printf("nActualTimespan = %"PRId64" before bounds\n", nActualTimespan);
-
 
     // thanks to RealSolid & WDC for this code
 
@@ -1341,11 +1339,13 @@ unsigned int GetNextTrust_DigiShield(const CBlockIndex* pindexLast, bool fProofO
     if (bnNew > bnProofOfWorkLimit)
         bnNew = bnProofOfWorkLimit;
 
-    /// debug print
-    printf("GetNextWorkRequired RETARGET\n");
-    printf("nTargetTimespan = %"PRId64" nActualTimespan = %"PRId64"\n", retargetTimespan, nActualTimespan);
-    printf("Before: %08x %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
-    printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+    // debug print
+    if (fDebug && GetBoolArg("-printdigishield")) {
+        printf("GetNextWorkRequired RETARGET\n");
+        printf("nTargetTimespan = %"PRId64" nActualTimespan = %"PRId64"\n", retargetTimespan, nActualTimespan);
+        printf("Before: %08x %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
+        printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+    };
 
     return bnNew.GetCompact();
 }
@@ -2179,12 +2179,21 @@ bool ApplyTimeDilation(uint64 timeReceived, uint64 timeStaked, uint64& nDilatedC
         nDilatedCoinAge = secondsAtFullReward +
                 (uint64)((1.0 / timeDilationCoeff) * (1.0 - exp(-timeDilationCoeff * (double)(timeStaked - timeDilationStarts))));
 
+        if (fDebug && GetBoolArg("-printcoinage"))
+            printf("staked coins are %.3f days old. POS reward reduces by %.3f percent",
+                   (double)(timeStaked-timeReceived)/(24.0*60.0*60.0),
+                   100.0 - (double)(nDilatedCoinAge * 100.0) / (double)(timeStaked-timeReceived)
+                   );
+
         // sanity check. Dilation should produce a positive value <= the elapsed time between receiving and staking
         nDilatedCoinAge = max(min(nDilatedCoinAge, timeStaked-timeReceived),(uint64)0);
         return true;
     }
     else
     {
+        if (fDebug && GetBoolArg("-printcoinage"))
+            printf("staked coins are younger than live wallet reward target. full coinage applies to reward");
+
         nDilatedCoinAge = max((timeStaked-timeReceived),(uint64)0);
         return false;
     }
