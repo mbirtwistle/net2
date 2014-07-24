@@ -19,7 +19,7 @@
 #include "main.h"
 using namespace std;
 
-unsigned int nStakeSplitAge = 1 * 24 * 60 * 60; // If you find a POS block with coins aged less than this, it assumes you are staking well over the nStakeCombineThreshold and are finding blocks too quickly (
+unsigned int nStakeSplitAge = 0; // If you find a POS block with coins aged less than this, it assumes you are staking well over the nStakeCombineThreshold and are finding blocks too quickly (
 // ( probably have a very high value compared to the network). It will split the payout back to you into two blocks, to give other people a better chance to stake.
 int64_t nStakeCombineThreshold = 10000000 * COIN;   //When appending coins to submit as a POS block, no further coins are added if this total is achieved
 
