@@ -1660,8 +1660,8 @@ Value validatepubkey(const Array& params, bool fHelp)
 {
     if (fHelp || !params.size() || params.size() > 2)
         throw runtime_error(
-            "validatepubkey <pandacoinpubkey>\n"
-            "Return information about <pandacoinpubkey>.");
+            "validatepubkey <netcoinpubkey>\n"
+            "Return information about <netcoinpubkey>.");
 
     std::vector<unsigned char> vchPubKey = ParseHex(params[0].get_str());
     CPubKey pubKey(vchPubKey);

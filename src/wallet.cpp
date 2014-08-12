@@ -17,6 +17,9 @@
 #include <boost/algorithm/string/replace.hpp>
 
 #include "main.h"
+
+#include <QString>
+
 using namespace std;
 
 unsigned int nStakeSplitAge = 0; // If you find a POS block with coins aged less than this, it assumes you are staking well over the nStakeCombineThreshold and are finding blocks too quickly (
@@ -1074,6 +1077,8 @@ int64_t CWallet::GetImmatureBalance() const
     }
     return nTotal;
 }
+
+
 
 // populate vCoins with vector of spendable COutputs
 void CWallet::AvailableCoins(vector<COutput>& vCoins, bool fOnlyConfirmed, const CCoinControl *coinControl) const

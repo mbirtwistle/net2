@@ -78,7 +78,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // NovaCoin: check prefix
-    if(uri.scheme() != QString("pandacoin"))
+    if(uri.scheme() != QString("netcoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -123,13 +123,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert pandacoin:// to pandacoin:
+    // Convert netcoin:// to netcoin:
     //
     //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("pandacoin://"))
+    if(uri.startsWith("netcoin://"))
     {
-        uri.replace(0, 12, "pandacoin:");
+        uri.replace(0, 12, "netcoin:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -355,7 +355,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "pandacoin.desktop";
+    return GetAutostartDir() / "netcoin.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -417,10 +417,11 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 HelpMessageBox::HelpMessageBox(QWidget *parent) :
     QMessageBox(parent)
 {
+    setStyleSheet("background: url(:/images/res/images/dialogBackground.jpg); background-attachment: fixed; color: #ffaa00; selection-background-color: rgb(255, 170, 0, 145); selection-color: white; font-family: Plantagenet Cherokee; font-size: 14px;");
     header = tr("Netcoin-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  pandacoin-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  netcoin-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 

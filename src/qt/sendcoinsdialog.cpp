@@ -21,6 +21,7 @@
 #include <QTextDocument>
 #include <QScrollBar>
 #include <QClipboard>
+#include <QAction>
 
 SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
     QDialog(parent),
@@ -37,7 +38,7 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
 
 #if QT_VERSION >= 0x040700
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    ui->lineEditCoinControlChange->setPlaceholderText(tr("Enter a Netcoin address (e.g. PBZ8YVV3XT3WWWd2a1jo4N9WePiwKB3mJE)"));
+    ui->lineEditCoinControlChange->setPlaceholderText(tr("Enter a Netcoin address (e.g. nBZ8YVV3XT3WWWd2a1jo4N9WePiwKB3mJE)"));
 #endif
 
     addEntry();
@@ -52,6 +53,7 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
     connect(ui->lineEditCoinControlChange, SIGNAL(textEdited(const QString &)), this, SLOT(coinControlChangeEdited(const QString &)));
 
     // Coin Control: clipboard actions
+
     QAction *clipboardQuantityAction = new QAction(tr("Copy quantity"), this);
     QAction *clipboardAmountAction = new QAction(tr("Copy amount"), this);
     QAction *clipboardFeeAction = new QAction(tr("Copy fee"), this);
@@ -150,10 +152,16 @@ void SendCoinsDialog::on_sendButton_clicked()
 
     fNewRecipientAllowed = false;
 
-    QMessageBox::StandardButton retval = QMessageBox::question(this, tr("Confirm send coins"),
-                          tr("Are you sure you want to send %1?").arg(formatted.join(tr(" and "))),
-          QMessageBox::Yes|QMessageBox::Cancel,
-          QMessageBox::Cancel);
+    QMessageBox msgBox;
+     msgBox.setStyleSheet("background: url(:/images/res/images/dialogBackground.jpg);"
+                          "color: #ffaa00;"
+                          "font-family: Plantagenet Cherokee;"
+                          "font-size: 14px;");
+     msgBox.setText("Confirm your transaction");
+     msgBox.setInformativeText(tr("Are you sure you want to send %1?").arg(formatted.join(tr(" and "))));
+     msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+     msgBox.setDefaultButton(QMessageBox::Yes);
+     int retval = msgBox.exec();
 
     if(retval != QMessageBox::Yes)
     {
@@ -507,14 +515,14 @@ void SendCoinsDialog::coinControlUpdateLabels()
         CoinControlDialog::updateLabels(model, this);
 
         // show coin control stats
-        ui->labelCoinControlAutomaticallySelected->hide();
+        ui->labelCoinControlAutomaticallySelected->show();
         ui->widgetCoinControl->show();
     }
     else
     {
         // hide coin control stats
         ui->labelCoinControlAutomaticallySelected->show();
-        ui->widgetCoinControl->hide();
-        ui->labelCoinControlInsuffFunds->hide();
+        ui->widgetCoinControl->show();
+        ui->labelCoinControlInsuffFunds->show();
     }
 }
