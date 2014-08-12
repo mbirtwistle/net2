@@ -14,7 +14,7 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
     unitlist.append(BTC);
     unitlist.append(mBTC);
     unitlist.append(uBTC);
-    return unitlist;
+    return unitlist;    
 }
 
 bool BitcoinUnits::valid(int unit)
@@ -47,7 +47,7 @@ QString BitcoinUnits::description(int unit)
     {
     case BTC: return QString("Netcoins");
     case mBTC: return QString("Milli-Netcoins (1 / 1,000)");
-    case uBTC: return QString("Micro-Netcoins (1 / 1,000,000)");
+    case uBTC: return QString("Nano-Netcoins (1 / 1,000,000)");
     default: return QString("???");
     }
 }

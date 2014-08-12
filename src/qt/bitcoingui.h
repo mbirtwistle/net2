@@ -25,6 +25,7 @@ class QAbstractItemModel;
 class QModelIndex;
 class QProgressBar;
 class QStackedWidget;
+class QActionGroup;
 class QUrl;
 QT_END_NAMESPACE
 
