@@ -41,7 +41,9 @@ CoinControlDialog::CoinControlDialog(QWidget *parent) :
              //unlockAction = new QAction(tr("Unlock unspent"), this);                    // we need to enable/disable this
 
     // context menu
+
     contextMenu = new QMenu();
+    contextMenu->setStyleSheet("QMenu {background: url(:/images/res/images/dialogBackground.jpg); color: #ffaa00; selection-background-color: rgb(255, 170, 0, 145); selection-color: white; font-family: Plantagenet Cherokee; font-size: 12px;}");
     contextMenu->addAction(copyAddressAction);
     contextMenu->addAction(copyLabelAction);
     contextMenu->addAction(copyAmountAction);

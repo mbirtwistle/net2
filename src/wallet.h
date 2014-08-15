@@ -185,6 +185,9 @@ public:
     int64_t GetUnconfirmedBalance() const;
     int64_t GetImmatureBalance() const;
     int64_t GetStake() const;
+    void GetMyWeight() const;
+    int64_t GetMyNetworkWeight() const;
+    int64_t GetMyTimeToStake() const;
     int64_t GetNewMint() const;
     bool CreateTransaction(const std::vector<std::pair<CScript, int64_t> >& vecSend, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, std::string strTxComment, const CCoinControl *coinControl=NULL);
     bool CreateTransaction(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, std::string strTxComment, const CCoinControl *coinControl=NULL);
@@ -806,6 +809,7 @@ public:
 class CAccountingEntry
 {
 public:
+
     std::string strAccount;
     int64_t nCreditDebit;
     int64_t nTime;
@@ -876,6 +880,7 @@ public:
 
 private:
     std::vector<char> _ssExtra;
+    int64_t nWeight;
 };
 
 bool GetWalletFile(CWallet* pwallet, std::string &strWalletFileOut);
