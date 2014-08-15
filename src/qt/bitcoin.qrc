@@ -145,5 +145,35 @@
         <file>res/tooltips/cryptsyLtcTooltip.png</file>
         <file>res/tooltips/bterCnyTooltip.png</file>
         <file>res/tooltips/bterLtcTooltip.png</file>
+        <file>res/tooltips/alpenToolTip.png</file>
+        <file>res/tooltips/mastermindTooltip.png</file>
+        <file>res/tooltips/scryptstoreTooltip.png</file>
+        <file>res/tooltips/tuffwrapsTooltip.png</file>
+        <file>res/tooltips/bitezzeTooltip.png</file>
+        <file>res/tooltips/retroTowersTooltip.png</file>
+        <file>res/tooltips/scryptStoreTootip.png</file>
+        <file>res/tooltips/castorTooltip.png</file>
+        <file>res/tooltips/stakingMachineTooltip.png</file>
+        <file>res/tooltips/wrolTooltip.png</file>
+        <file>res/tooltips/amazoniaTooltip.png</file>
+        <file>res/tooltips/piccaTooltip.png</file>
+        <file>res/tooltips/grKreationsTooltip.png</file>
+        <file>res/tooltips/wateridoTooltip.png</file>
+        <file>res/tooltips/zetasteamTooltip.png</file>
+        <file>res/tooltips/songsOfLoveTooltip.png</file>
+        <file>res/tooltips/ecasinoTooltip.png</file>
+        <file>res/tooltips/blockExplorerTooltip.png</file>
+        <file>res/tooltips/lotteryTooltip.png</file>
+        <file>res/tooltips/forumTooltip.png</file>
+        <file>res/tooltips/paperWalletTooltip.png</file>
+        <file>res/tooltips/explorerTooltip.png</file>
+        <file>res/tooltips/cryptodirectTooltip.png</file>
+        <file>res/tooltips/verifyAddyTooltip.png</file>
+        <file>res/tooltips/clearAllVerifyTooltip.png</file>
+        <file>res/tooltips/signMessageDialogTooltip.png</file>
+        <file>res/tooltips/theMessageToSign.png</file>
+        <file>res/tooltips/copyMessageTooltip.png</file>
+        <file>res/tooltips/signThisMessageTooltip.png</file>
+        <file>res/tooltips/resetSignMessageFieldsTooltip.png</file>
     </qresource>
 </RCC>

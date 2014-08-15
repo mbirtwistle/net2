@@ -2267,7 +2267,7 @@ background: url(:/images/res/images/dialogBackground.jpg)
             </font>
            </property>
            <property name="toolTip">
-            <string>The address to sign the message with (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolTip/res/tooltips/signMessageDialogTooltip.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="maxLength">
             <number>34</number>
@@ -2725,7 +2725,7 @@ background: url(:/images/res/images/dialogBackground.jpg)
             </font>
            </property>
            <property name="toolTip">
-            <string>Choose an address from the address book</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolTip/res/tooltips/chooseAddressTooltip.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="styleSheet">
             <string notr="true"/>
@@ -3196,7 +3196,7 @@ background: url(:/images/res/images/dialogBackground.jpg)
             </font>
            </property>
            <property name="toolTip">
-            <string>Paste address from clipboard</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolTip/res/tooltips/pasteAddressTooltip.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="styleSheet">
             <string notr="true"/>
@@ -3372,7 +3372,7 @@ background: url(:/images/res/images/dialogBackground.jpg)
           </font>
          </property>
          <property name="toolTip">
-          <string>Enter the message you want to sign here</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolTip/res/tooltips/theMessageToSign.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -4288,7 +4288,7 @@ background: url(:/images/res/images/dialogBackground.jpg)
             </font>
            </property>
            <property name="toolTip">
-            <string>Copy the current signature to the system clipboard</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolTip/res/tooltips/copyMessageTooltip.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="styleSheet">
             <string notr="true"/>
@@ -4760,7 +4760,7 @@ background: url(:/images/res/images/dialogBackground.jpg)
             </font>
            </property>
            <property name="toolTip">
-            <string>Sign the message to prove you own this NetCoin address</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolTip/res/tooltips/signThisMessageTooltip.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="text">
             <string>&amp;Sign Message</string>
@@ -5225,7 +5225,7 @@ background: url(:/images/res/images/dialogBackground.jpg)
             </font>
            </property>
            <property name="toolTip">
-            <string>Reset all sign message fields</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolTip/res/tooltips/resetSignMessageFieldsTooltip.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="text">
             <string>Clear &amp;All</string>
@@ -7102,7 +7102,7 @@ background: url(:/images/res/images/dialogBackground.jpg)
             </font>
            </property>
            <property name="toolTip">
-            <string>The address the message was signed with (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolTip/res/tooltips/verifyAddyTooltip.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="maxLength">
             <number>34</number>
@@ -7560,7 +7560,7 @@ background: url(:/images/res/images/dialogBackground.jpg)
             </font>
            </property>
            <property name="toolTip">
-            <string>Choose an address from the address book</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolTip/res/tooltips/chooseAddressTooltip.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="styleSheet">
             <string notr="true"/>
@@ -8942,7 +8942,7 @@ background: url(:/images/res/images/dialogBackground.jpg)
             </font>
            </property>
            <property name="toolTip">
-            <string>Verify the message to ensure it was signed with the specified NetCoin address</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolTip/res/tooltips/verifyMessageTooltip.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="text">
             <string>&amp;Verify Message</string>
@@ -9407,7 +9407,7 @@ background: url(:/images/res/images/dialogBackground.jpg)
             </font>
            </property>
            <property name="toolTip">
-            <string>Reset all verify message fields</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/toolTip/res/tooltips/clearAllVerifyTooltip.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="text">
             <string>Clear &amp;All</string>

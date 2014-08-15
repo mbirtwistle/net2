@@ -52,7 +52,7 @@ static const int64_t nTargetTimespan = 60 * 60;						// NetCoin: every 60 minute
 unsigned int nTargetSpacing = 1 * 60;								// NetCoin: 60 sec
 static const int64_t nInterval = nTargetTimespan / nTargetSpacing;	// 60 blocks
 unsigned int nStakeMinAge = 1 * 60 * 60; // 1 hour
-unsigned int nStakeMaxAge = 25920; // 0.3 days
+unsigned int nStakeMaxAge = 2592000; // 30 days
 unsigned int nModifierInterval = 10 * 60; // time to elapse before new modifier is computed
 
 int nCoinbaseMaturity = 10;

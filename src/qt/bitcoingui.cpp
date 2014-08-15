@@ -83,7 +83,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     rpcConsole(0)
 {
 
-    resize(750, 500);
+    resize(700, 500);
     setWindowTitle(tr("Netcoin") + " - " + tr("Wallet"));
 
 #ifndef Q_OS_MAC
@@ -177,6 +177,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     // Progress bar and label for blocks download
     progressBarLabel = new QLabel();
     progressBarLabel->setVisible(false);
+
     progressBar = new QProgressBar();
     progressBar->setAlignment(Qt::AlignCenter);
     progressBar->setVisible(false);
@@ -187,9 +188,9 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     QString curStyle = qApp->style()->metaObject()->className();
     if(curStyle == "QWindowsStyle" || curStyle == "QWindowsXPStyle")
     {
-        progressBar->setStyleSheet("QProgressBar { background-color: #000000; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #ffaa00, stop: 1 orange); border-radius: 7px; margin: 0px; }");
+        progressBar->setStyleSheet("QProgressBar { background-color: #000000; color: white; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #ffaa00, stop: 1 orange); border-radius: 7px; margin: 0px; }");
     }
-    statusBar()->setStyleSheet("background-color: black;");
+    statusBar()->setStyleSheet("QStatusBar { background-color: black; border: 1px solid grey;}");
     statusBar()->addWidget(progressBarLabel);
     statusBar()->addWidget(progressBar);
     statusBar()->addPermanentWidget(frameBlocks);
@@ -344,11 +345,7 @@ void BitcoinGUI::createMenuBar()
 #else
     // Get the main window's menu bar on other platforms
     appMenuBar = menuBar();
-    appMenuBar->setStyleSheet("QMenuBar {background-color: black;"
-                              "color: #ffaa00;"
-                              "selection-background-color: rgb(255, 170, 0, 145);"
-                              "font-family: Plantagenet Cherokee;"
-                              "font-size: 12px;}");
+    appMenuBar->setStyleSheet("QMenuBar {background-color: black; color: #ffaa00; selection-background-color: rgb(255, 170, 0, 145); selection-color: white; font-family: Plantagenet Cherokee; font-size: 12px;}");
 #endif
 
     // Configure the menus
@@ -356,6 +353,7 @@ void BitcoinGUI::createMenuBar()
     file->setStyleSheet("QMenu { background-color: black;"
             "color: #ffaa00;"
             "selection-background-color: rgb(255, 170, 0, 145);"
+            "selection-color: white;"
             "font-family: Plantagenet Cherokee;"
             "font-size: 12px; }");
 
@@ -370,6 +368,7 @@ void BitcoinGUI::createMenuBar()
     settings->setStyleSheet("QMenu {background-color: black;"
             "color: #ffaa00;"
             "selection-background-color: rgb(255, 170, 0, 145);"
+            "selection-color: white;"
             "font-family: Plantagenet Cherokee;"
             "font-size: 12px;}");
 
@@ -384,6 +383,7 @@ void BitcoinGUI::createMenuBar()
     help->setStyleSheet("QMenu {background-color: black;"
             "color: #ffaa00;"
             "selection-background-color: rgb(255, 170, 0, 145);"
+            "selection-color: white;"
             "font-family: Plantagenet Cherokee;"
             "font-size: 12px;}");
 
@@ -567,9 +567,7 @@ void BitcoinGUI::setNumConnections(int count)
     default: icon = ":/icons/connect_4"; break;
     }
     labelConnectionsIcon->setStyleSheet("background-color: black;"
-                  "color: #ffaa00;"
-                  "font-family: Plantagenet Cherokee;"
-                  "font-size: 12px;");
+                  "color: #ffaa00;");
 
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
     labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Netcoin network", "", count));
@@ -597,6 +595,7 @@ void BitcoinGUI::setNumBlocks(int count, int nTotalBlocks)
         if (strStatusBarWarnings.isEmpty())
         {
             progressBarLabel->setText(tr("Synchronizing with network..."));
+
             progressBarLabel->setVisible(true);
             progressBar->setFormat(tr("~%n block(s) remaining", "", nRemainingBlocks));
             progressBar->setMaximum(nTotalBlocks);
@@ -605,6 +604,7 @@ void BitcoinGUI::setNumBlocks(int count, int nTotalBlocks)
         }
 
         tooltip = tr("Downloaded %1 of %2 blocks of transaction history (%3% done).").arg(count).arg(nTotalBlocks).arg(nPercentageDone, 0, 'f', 2);
+
     }
     else
     {
@@ -659,12 +659,10 @@ void BitcoinGUI::setNumBlocks(int count, int nTotalBlocks)
     }
     else
     {
-        labelBlocksIcon->setStyleSheet("background-color: black;"
-                      "color: #ffaa00;"
-                      "font-family: Plantagenet Cherokee;"
-                      "font-size: 10px;");
+        labelBlocksIcon->setStyleSheet("QTooltip {background-color: black; color: #ffaa00;}");
 
         tooltip = tr("Catching up...") + QString("<br>") + tooltip;
+
         labelBlocksIcon->setMovie(syncIconMovie);
         syncIconMovie->start();
 
@@ -682,6 +680,8 @@ void BitcoinGUI::setNumBlocks(int count, int nTotalBlocks)
 
     labelBlocksIcon->setToolTip(tooltip);
     progressBarLabel->setToolTip(tooltip);
+
+
     progressBar->setToolTip(tooltip);
 }
 
@@ -815,11 +815,8 @@ void BitcoinGUI::gotoShoppingPage()
 {
     shoppingAction->setChecked(true);
     centralWidget->setCurrentWidget(shoppingPage);
-
-    exportAction->setEnabled(true);
-    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
-    connect(exportAction, SIGNAL(triggered()), shoppingPage, SLOT(exportClicked()));
 }
+
 void BitcoinGUI::gotoNetworkPage()
 {
     networkAction->setChecked(true);

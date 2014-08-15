@@ -20,7 +20,7 @@
 #include <QFrame>
 
 #define DECORATION_SIZE 64
-#define NUM_ITEMS 3
+#define NUM_ITEMS 5
 
 extern CWallet* pwalletMain;
 extern int64_t nLastCoinStakeSearchInterval;
@@ -172,6 +172,11 @@ void OverviewPage::setBalance(qint64 balance, qint64 stake, qint64 unconfirmedBa
     ui->labelImmatureText->setVisible(showImmature);
 }
 
+void OverviewPage::setNumTransactions(int count)
+{
+    ui->labelNumTransactions->setText(QLocale::system().toString(count));
+}
+
 
 void OverviewPage::updateMyWeight()
 {
@@ -239,6 +244,10 @@ void OverviewPage::setModel(WalletModel *model)
         // Keep up to date with wallet
         setBalance(model->getBalance(), model->getStake(), model->getUnconfirmedBalance(), model->getImmatureBalance());
         connect(model, SIGNAL(balanceChanged(qint64, qint64, qint64, qint64)), this, SLOT(setBalance(qint64, qint64, qint64, qint64)));
+
+        setNumTransactions(model->getNumTransactions());
+        connect(model, SIGNAL(numTransactionsChanged(int)), this, SLOT(setNumTransactions(int)));
+
 
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
     }

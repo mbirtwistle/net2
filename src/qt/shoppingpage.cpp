@@ -25,8 +25,6 @@ ShoppingPage::ShoppingPage(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
-
 }
 
 ShoppingPage::~ShoppingPage()
@@ -194,5 +192,12 @@ void ShoppingPage::on_pushButton_58_clicked()
 void ShoppingPage::on_pushButton_56_clicked()
 {
     QString link="http://paperwallet.netcoinfoundation.org/";
+    QDesktopServices::openUrl(QUrl(link));
+}
+
+//Development Site links
+void ShoppingPage::on_pushButton_clicked()
+{
+    QString link="http://development.netcoinfoundation.org/";
     QDesktopServices::openUrl(QUrl(link));
 }
