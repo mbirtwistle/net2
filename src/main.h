@@ -46,9 +46,32 @@ static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
 static const int64_t DUST_SOFT_LIMIT = 100000000;
 static const int64_t DUST_HARD_LIMIT = 1000000;
 static const int64_t MAX_MONEY = 325000000 * COIN; // NetCoin: maximum of 325M coins
-static const int64_t MAX_MINT_PROOF_OF_STAKE_1 = 3 * CENT;	// 3% annual interest
-static const int64_t MAX_MINT_PROOF_OF_STAKE_2 = 30 * CENT;	// 30% annual interest
-static const int64_t MAX_MINT_PROOF_OF_STAKE_3 = 300 * CENT;	// 300% annual interest
+
+
+// Netcoin PIR personal staking interest rate is organised into percentage reward bands based on the value of the coins being staked
+// madprofezzor@gmail.com
+
+static const int PIR_LEVELS = 7; // number of thresholds
+static const int PIR_PHASES = 3;
+static const int64_t PIR_PHASEBLOCKS = 365 * 24 * 60 * 60; // one year for each phase
+
+static const int64_t PIR_THRESHOLDS[PIR_LEVELS] = {
+    0,
+    1000,
+    10000,
+    100000,
+    1000000,
+    10000000,
+    9223372036854775807
+}; // unit is netcoins.  Must start with 0 and finish with INT64T_MAX
+
+static const int64_t PIR_RATES[PIR_PHASES][PIR_LEVELS] = {
+        {10,15,20,30,80,100,100},   // Year 1
+        {20,25,30,35,40,45 ,45 },   // Year 2
+        {20,22,24,26,28,30 ,30 }    // Year 3+
+};
+
+
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
 
@@ -149,7 +172,8 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey);
 bool CheckProofOfWork(uint256 hash, unsigned int nBits);
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlock* pblock, bool fProofOfStake);
 int64_t GetProofOfWorkReward(int nHeight, int64_t nFees, uint256 prevHash);
-int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nCoinValue, int64_t nFees);
+int64_t GetPIRRewardCoinYear(int64_t nCoinValue, int64_t nHeight);
+int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nCoinValue, int64_t nFees, int64_t nHeight);
 unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime);
 unsigned int ComputeMinStake(unsigned int nBase, int64_t nTime, unsigned int nBlockTime);
 int GetNumBlocksOfPeers();
