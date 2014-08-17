@@ -44,6 +44,7 @@
         <file>res/icons/staking_on.png</file>
         <file alias="overview">res/icons/overview.png</file>
         <file>res/icons/services.png</file>
+        <file>res/icons/stakingTab.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>
