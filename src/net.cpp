@@ -1159,9 +1159,7 @@ void MapPort()
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strDNSSeed[][2] = {
-    // {"netcoinpool.org", "dnsseed.netcoinpool.org"},
-    // {"bytesized-vps.com", "dnsseed.bytesized-vps.com"},
-    // {"xurious.com", "dnsseed.ltc.xurious.com"},
+     {"netcoinfoundation.org", "dnsseed.netcoinfoundation.org"}
 };
 
 void ThreadDNSAddressSeed(void* parg)
@@ -1169,7 +1167,7 @@ void ThreadDNSAddressSeed(void* parg)
     IMPLEMENT_RANDOMIZE_STACK(ThreadDNSAddressSeed(parg));
 
     // Make this thread recognisable as the DNS seeding thread
-    RenameThread("bitcoin-dnsseed");
+    RenameThread("netcoin-dnsseed");
 
     try
     {
