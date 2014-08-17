@@ -267,7 +267,7 @@ void BitcoinGUI::createActions()
     shoppingAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
     tabGroup->addAction(shoppingAction);
 
-    networkAction = new QAction(QIcon(":/icons/res/icons/services.png"), tr("&Staking"), this);
+    networkAction = new QAction(QIcon(":/icons/res/icons/stakingTab.png"), tr("&Staking"), this);
     networkAction->setToolTip(tr("<html><head/><body><p><img src=:/toolTip/res/tooltips/stakingTabTooltip.png/></p></body></html>"));
     networkAction->setCheckable(true);
     networkAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_7));
