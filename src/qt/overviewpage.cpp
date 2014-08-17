@@ -120,7 +120,7 @@ OverviewPage::OverviewPage(QWidget *parent) :
     {
         QTimer *timerMyWeight = new QTimer();
         connect(timerMyWeight, SIGNAL(timeout()), this, SLOT(updateMyWeight()));
-        timerMyWeight->start(30 * 100);
+        timerMyWeight->start(30 * 1000);
         updateMyWeight();
     }
 

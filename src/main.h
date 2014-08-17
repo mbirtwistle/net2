@@ -90,7 +90,7 @@ static const int fHaveUPnP = false;
 static const uint256 hashGenesisBlock("0x38624e3834cfdc4410a5acbc32f750171aadad9620e6ba6d5c73201c16f7c8d1");
 
 static const int BLOCK_HEIGHT_KGW_START = 218500; // HISTORICAL HARD FORK. DO NOT CHANGE
-static const int BLOCK_HEIGHT_POS_AND_DIGISHIELD_START = 425000; //
+static const int BLOCK_HEIGHT_POS_AND_DIGISHIELD_START = 420000; //
 static const int BLOCK_HEIGHT_FINALPOW =  1296000; // this is where the proof of work reward drops to 1 coin. Approx 2.5 years after genesis block
 
 
